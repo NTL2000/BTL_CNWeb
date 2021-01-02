@@ -1,0 +1,23 @@
+*{padding: 0;margin: 0 auto; box-sizing: border-box;}
+.content{width: 80%;border: 1px solid whitesmoke;padding: 10px;padding-top: 100px !important;}
+.content .nut input{width: 20%;height: 26%;text-align: center;border-radius: 5px; border: 1px solid black;}
+.content .nut button{ width: 20%;background-color: white;border: 1px solid white;}
+.moihangchitiet{margin-top: 20px;}
+.thongtincanhan{margin-top: 10px;border-top: 2px solid darkgray;border-bottom: 1px solid darkgrey;padding: 20px;}
+.thongtincanhan form{width: 100%;}
+.thongtincanhan table{width: 80%;}
+.thongtincanhan table *{ margin-top: 10px;}
+.tinhtien{margin-top: 20px;padding: 10px;border-top: 2px solid darkgrey;}
+.tinhtien div{width: 100%;}
+.tinhtien div table{width: 30%;float: right;}
+.tinhtien div table *{margin-top: 20px;color: rgb(84, 83, 85);font-size: 18px;}
+.tinhtien div table th{color: #B0B4B7;font-weight: 500;font-size: 18px;}
+.tinhtien div table td{font-weight: bold;}
+.tinhtien .trthanhtien{border-top: 2px solid whitesmoke; padding: 10px;}
+.tinhtien .othanhtien{color: red;font-weight: bold;font-size: 25px;}
+.nutdathang{text-align: center;padding: 10px;}
+.thongtincanhan span{color: red;font-weight: bold;}
+.moihangchitiet div img{width: 100px;}
+#othanhtien{color: red;}
+br{clear: both;}
+.header__navbar-list{margin: 0 !important;}

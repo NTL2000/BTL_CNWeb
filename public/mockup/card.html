@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Trang chủ</title>
+    <!-- Bootstrap -->
+    <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Icon -->
+    <link rel="stylesheet" href="./font/css/all.css">
+    <!-- nhúng css -->
+    <link rel="stylesheet" href="./css/card.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <div class="app">
+        <header class="header">
+            <nav class="nabar__container">
+                <ul class="header__navbar-list">
+                    <li class="header__navbar-item header__navbar-item--has-qr header__navbar-item--separate">
+                        Tải ứng dụng
+                        <div class="header__qr">
+                            <img src="./images/navbar/qr_code.png" alt="QR Code" class="header__qr-img" />
+                            <div class="header__qr-app">
+                                <a href="" class="header__qr-link">
+                                    <img src="./images/navbar/google_play.png" alt="Google Play"
+                                        class="header__qr-download-img" />
+                                </a>
+                                <a href="" class="header__qr-link">
+                                    <img src="./images/navbar/appstore.png" alt="App Store"
+                                        class="header__qr-download-img" />
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="header__navbar-item">
+                        <span class="header__navbar-title--no-pointer">Kết nối</span>
+                        <a href="" class="header__navbar-icon-link">
+                            <i class="header__navbar-icon fab fa-facebook"></i>
+                        </a>
+                        <a href="" class="header__navbar-icon-link">
+                            <i class="header__navbar-icon fab fa-instagram"></i>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="header__navbar-list">
+                    <li class="header__navbar-item header__navbar-item--has-notify">
+                        <a href="" class="header__navbar-item-link">
+                            <i class="header__navbar-icon far fa-bell"></i>
+                            Thông báo
+                        </a>
+                        <!--Thông báo mới nhận -->
+                        <div class="navbar__notify">
+                            <h5 class="notify__h4">
+                                Thông báo mới nhận
+                            </h5>
+                            <hr>
+                            <div class="notify__items">
+                                <div class="notify__item">
+                                    <div class="notify__item-container">
+                                        <a href="#" class="notify__item-img"><img src="./images/notify/notify__img.png" alt="" class="notify__item-i"></a>
+                                        <div class="notify__item-right">
+                                            <h6 class="notify__item-title">Hot! Đón giáng sinh với voucher 100k</h6>
+                                            <div class="notify__item-content">
+                                                Duy nhất một đêm...
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="notify__item">
+                                    <div class="notify__item-container">
+                                        <a href="#" class="notify__item-img"><img src="./images/notify/notify__img.png" alt="" class="notify__item-i"></a>
+                                        <div class="notify__item-right">
+                                            <h6 class="notify__item-title">Hot! Đón giáng sinh với voucher 100k</h6>
+                                            <div class="notify__item-content">
+                                                Duy nhất một đêm...
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="notify__item">
+                                    <div class="notify__item-container">
+                                        <a href="#" class="notify__item-img"><img src="./images/notify/notify__img.png" alt="" class="notify__item-i"></a>
+                                        <div class="notify__item-right">
+                                            <h6 class="notify__item-title">Hot! Đón giáng sinh với voucher 100k</h6>
+                                            <div class="notify__item-content">
+                                                Duy nhất một đêm...
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="header__navbar-item">
+                        <a href="" class="header__navbar-item-link">
+                            <i class="header__navbar-icon far fa-question-circle"></i>
+                            Trợ giúp
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header__container">
+                <div class="header__container-logo">
+                    <div class="logo__line1">
+                        <p class="logo__line1-text"><a href="./index.html">TLU_Shop</a></p>
+                    </div>
+                </div>
+                <div class="header__container-form">
+                    <form class="form__tag">
+                        <div class="input-group">
+                            <input type="text" class="form-control"
+                                placeholder="Tên Laptop, hãng sản xuất, cấu hình... ">
+                            <button class="btn btn-warning"><i class="fas fa-search"></i></button>
+
+                        </div>
+                    </form>
+                </div>
+                <div class="header__container-lh">
+                    <div class="lh__line1">
+                        <p class="lh__line1-text">0964627305</p>
+                    </div>
+                    <p class="lh__line2">
+                        Hotline hỗ trợ khách hàng
+                    </p>
+                </div>
+                <div class="header__container-login-card">
+                    <div class="btn__card">
+                        <button class="bt__card"> <i class="fa fa-shopping-cart"></i><span class='badge badge-warning'
+                                id='lblCartCount'>1</span> Giỏ hàng</button>
+                        <div class="cart__hidden">
+                            <h4 class="cart__hidden-heading">Sản phẩm mới thêm</h4>
+                            <hr>
+                            <div class="cart__product">
+                                <div class="cart__product-item">
+                                    <div class="cart__product-container">
+                                        <div class="cpi__left">
+                                            <a href="" class="cpi__left-img"><img src="./images/sanpham/anh6.jpg"
+                                                    alt=""></a>
+                                            <div class="cpi__left-content">
+                                                <span class="content__name">
+                                                    Lenovo Ideapad L340-15IRH 81LK00FAVN - Intel Core i5
+                                                </span>
+                                                <span class="content__price">
+                                                    <span class="cart__quantity">1</span>*<span
+                                                        class="cart__price">15990000</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <button class="cpi__right"><i class="fas fa-trash-alt"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="total__price">
+                                Tổng tiển :
+                                <span class="cart__total-price">15990000</span>
+                            </div>
+                            <div class="btn__checkout">
+                                <button><a href="./card.html">Đặt hàng</a></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn__login">
+                        <button class="bt__login"><i class="fas fa-users"></i> Đăng nhập</button>
+                        <div class="table__hidden">
+                            <div class="table__hidden-contaier">
+                                <a href="login.html"><button class="btn btn-warning btn__t2"><i
+                                            class="fas fa-users"></i> Đăng
+                                        nhập</button></a>
+                                <a href="signin.html"><button class="btn btn-warning btn__t2"><i
+                                            class="fas fa-registered"></i> Tạo tài
+                                        khoản</button></a>
+                                <a href="login.html"><button class="btn btn-primary">Đăng nhập
+                                        Facebook
+                                    </button></a>
+                                <a href="login.html"><button class="btn btn-danger">Đăng nhập
+                                        Google </button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="./index.html">
+                            <div class="header__container-logo">
+                                <div class="logo__line1">
+                                    <p class="logo__line1-text">TLU_Shop</p>
+                                </div>
+                                <p class="logo__line2">
+                                    Hệ thống bán lẻ uy tín
+                                </p>
+                            </div>
+                        </a>
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <i class="fa fa-bars" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="#">Giỏ hàng</a></li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Danh mục<span
+                                        class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Laptop dell</a></li>
+                                    <li><a href="#">Laptop Macbook</a></li>
+                                    <li><a href="#">Laptop Lenovo</a></li>
+                                    <li><a href="#">Khác</a></li>
+                                </ul>
+                            </li>
+                            <li class="active"><a href="#">Đăng ký</a></li>
+                            <li class="active"><a href="#">Đăng nhập</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Nội dung-->
+        <div class="content my-4 bg-white">
+            <div class="container">
+                <!-- Chi tiet san pham-->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row moihangchitiet">
+                            <div class="col-lg-2">
+                                <img class="img_gh" src="./images/giohang/anh1.jpg" alt="">
+                            </div>
+                            <div class="col-sx-5 col-sm-5 col-md-5  col-lg-5">
+                                <a href="#">MacBook Air 13 inch 2020 MWTJ2 - Hàng Nhập Khẩu - Gold</a>
+                                <br>
+                                <p>Màn hinh: FHD 1920x1080, Ram: 8GB, Ô cứng: SSD 256GB</p>
+                            </div>
+                            <div class="col-sx-2 col-sm-2 col-md-2  col-lg-2">
+                                <p class="tien">15000000 đ</p>
+                            </div>
+                            <div class="col-sx-3 col-sm-3 col-md-3  col-lg-3 nut">
+                                <button id="tru1" onclick="tru1()">-</button><input class="soluong" type="text"
+                                    value="1"><button id="cong1" onclick="cong1()">+</button>
+                                <button><i class="far fa-trash-alt"></i>Xóa</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Chi tiet san pham-->
+
+                <!-- Tổng tiền thanh toán-->
+                <div class="row tinhtien">
+                    <div>
+                        <table>
+                            <tr>
+                                <th>Tổng tiền sản phẩm: </th>
+                                <td id="tongTienSanPham"></td>
+                            </tr>
+
+                            <tr>
+                                <th>Phí vận chuyển: </th>
+                                <td>50.000 đ</td>
+                            </tr>
+
+                            <tr class="trthanhtien">
+                                <th>Tổng tiền: </th>
+                                <td id="othanhtien"></td>
+
+                            </tr>
+                        </table>
+
+                    </div>
+
+                    <br>
+
+                </div>
+                <!-- Tổng tiền thanh toán-->
+
+                <!-- Thông tin cá nhân-->
+                <div class="row thongtincanhan">
+                    <form action="#">
+                        <table>
+                            <tr>
+                                <td> <span>*</span> Họ tên: </td>
+                                <td>
+                                    <input class="form-control" type="text" placeholder="Họ tên">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><span>*</span> Số điện thoại: </td>
+                                <td>
+                                    <input class="form-control" type="tel" placeholder="Số điện thoại">
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td><span>*</span> Tỉnh thành</td>
+                                <td>
+                                    <select class="form-control">
+                                        <option selected>Chọn Tỉnh/Thành Phố</option>
+                                        <option>Thái Bình</option>
+                                        <option>TP.Hồ Chí Minh</option>
+                                        <option>Hà Nội</option>
+                                        <option>Vũng Tàu</option>
+                                        <option>Gia Lai</option>
+                                        <option>Phú Yên</option>
+                                        <option>Bình Định</option>
+                                        <option>Nha Trang</option>
+                                        <option>Bình Dương</option>
+                                        <option>Quảng Ngãi</option>
+                                        <option>Nghệ An</option>
+                                    </select>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td><span>*</span> Địa chỉ giao hàng: </td>
+                                <td><input class="form-control" type="text" placeholder="Số nhà, tên đường, phườngxã">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ghi chú: </td>
+                                <td>
+                                    <input class="form-control" type="text" placeholder="Nhắn gởi tới người bán">
+                                </td>
+
+                            </tr>
+
+                        </table>
+
+
+
+
+                </div>
+
+                <!-- Thông tin cá nhân-->
+
+                <!--Nút đặt hàng-->
+                <div class="nutdathang">
+                    <button class="btn btn-warning btn-lg">ĐẶT HÀNG ONLINE</button>
+                    <button class="btn btn-success btn-lg">Mua Trả Góp Thẻ VISA/Master/JCB</button>
+
+                </div>
+
+                </form>
+                <!-- Nút đặt hàng-->
+
+            </div>
+
+        </div>
+        <!-- end nội dung -->
+
+
+        <!-- /.container -->
+
+        <!-- Footer -->
+        <footer class="py-5 my-3 bg-white">
+            <div class="container ">
+                <div class="row">
+                    <div class="col-6 ulfooter">
+                        <h5 xss=removed>TLU_Shop</h5>
+                        <hr>
+
+                        <p>Địa chỉ: Thái Bình</p>
+                        <p>Hotline bán hàng: 0963283153 (Phương Thảo)</p>
+                        <p>Hotline kỹ thuật: 0964627305 (Long)</p>
+                        <p>Email: nguyenlong3172000@gmail.com</p>
+                        <div class="container">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-google-plus"></i></a>
+                            <a href="#"><i class="fab fa-youtube-square"></i></a>
+                            <a href="#"><i class="fab fa-twitter-square"></i></a>
+                        </div>
+
+                    </div>
+
+                    <div class="col-3 ulfooter">
+                        <h5>CHÍNH SÁCH CHUNG</h5>
+                        <hr>
+
+                        <p><a href="gioithieu.html">Chính sách đổi trả hàng</a></p>
+                        <p><a href="gioithieu.html">Chính sách vận chuyển</a></p>
+                        <p><a href="gioithieu.html">Chính sách bán hàng online</a></p>
+                        <p><a href="gioithieu.html">Chính sách bảo hành</a></p>
+                        <p><a href="gioithieu.html">Chính sách trả góp</a></p>
+
+
+                    </div>
+
+                    <div class="col-3 ulfooter">
+                        <h5>TRỢ GIÚP</h5>
+
+                        <hr>
+
+
+                        <p><a href="gioithieu.html">Giới thiệu</a></p>
+                        <p><a href="gioithieu.html">Thông tin liên lạc</a></p>
+                        <p><a href="gioithieu.html">Hướng dẫn mua hàng online</a></p>
+                        <p><a href="gioithieu.html">Hướng dẫn trả góp</a></p>
+                        <p><a href="gioithieu.html">Chính sách bảo hành</a></p>
+                        <p xss=removed><a href="gioithieu.html">Chính sách trả góp</a></p>
+                    </div>
+                </div>
+            </div>
+
+
+        </footer>
+
+        <div class="bg-light contaier-fluid ">
+            ©2020 TLU_Shop Copyright, All Rights Reserved.
+            <br>
+            <br>
+        </div>
+        <!-- Bootstrap core JavaScript -->
+        <script src="./vendor/jquery/jquery.min.js"></script>
+        <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="./js/card.js"></script>
+        <script src="./js/main.js"></script>
+</body>
+
+</html>

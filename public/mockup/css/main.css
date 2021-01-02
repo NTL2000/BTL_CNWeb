@@ -1,0 +1,207 @@
+/* header css */
+.header{background-image:linear-gradient(#f7472e,#fc5c31);position: fixed;z-index: 999;left: 0px;top: 0px;right: 0px;transition:background 1.5s ease;}
+#row__menu{margin-left: 0px;margin-right: 0px;}
+.header__container{display: flex;width: 1166.8px;margin: auto;}
+.logo__line1{text-align: center;color: #fff;}
+.logo__line1 a{color: #fff;}
+.logo__line1-text{font-size: 200%;font-weight: bold;}
+.logo__line2{color: #fff;}
+.header__container-form form{margin-top: -2px;width: 350px;height: 50px;margin-left: 135px;}
+.lh__line1{text-align: center;}
+.lh__line1-text{margin-top: 3px;font-size: 110%;color: #fff;margin-bottom: 5px;margin-top: 7px;}
+.header__container-lh{margin-left: 22px;margin-top: -21px;}
+.lh__line2{color: #fff;}
+.header__container-login-card{display: flex;margin-top: 24px;margin-left: 22px;}
+.bt__card{width: 140px;height: 38px;background-color: orange; border:0}
+.bt__login{width: 140px;height: 38px;background-color: orange; border:0}
+.btn__card{margin-right: 5px;width: 135px;}
+.bt__card:hover{background-color: yellow;}
+.bt__login:hover{background-color: yellow;}
+.table__hidden{display: none;position: absolute;border-radius: 20px;width: 250px;height: 250px;background-color:pink;margin-top: 13px;}
+.btn__login{width: 135px;}
+.btn__login button{width: 100%;;border-radius: 20px;text-align: center;overflow: hidden;position: relative;z-index: 1;}
+.btn__login:hover .table__hidden{display: block;}
+.table__hidden-contaier{width: 200px;margin-left: 26px;margin-top: 20px;}
+.btn__t2{width: 100%;}
+.btn-primary{width: 100%;}
+.btn-danger{width: 100%;}
+.table__hidden-contaier a .btn{margin-bottom: 15px;}
+.header__container-login-card .btn__card button{width: 100%;;border-radius: 20px;text-align: center;overflow: hidden;position: relative;z-index: 1;}
+.navbar-inverse{display: none;}
+/* .container a{padding:15px;} */
+/* giỏ hàng */
+.cart__hidden{background-color:pink;width: 400px;margin-top: 50px;display: none;border-radius: 20px;}
+.cart__product{margin: auto;overflow-y: auto;height: 300px;overflow-x: hidden;}
+.cart__product-item{display: flex;justify-content: space-between;margin: auto;height: 100px;}
+.cpi__left{display: flex;width: 340px}
+.cpi__left img{max-width: 100%;}
+.cpi__left-img{width:80px;height:80px;margin-right: 5px;}
+.cpi__left-content{display: block;}
+.cpi__right{height: 50px;width: 30px !important;margin: auto}
+.cpi__right i{margin:0 auto;font-size: 13px;text-align: center;}
+.content__price{display: block;}
+.cart__product-container{margin: auto;display: flex;max-width: 100% ;margin-left: 15px;margin-right: 15px;}
+.total__price{float: right;}
+.btn__checkout{margin: auto;width: 200px;}
+.btn__checkout button{margin-bottom: 7px;margin-top: 7px;max-width: 100%;}
+.btn__card{display: flex;flex-direction: row-reverse;}
+.cart__hidden::after{
+    z-index: 10000;
+    content: "";
+    position: absolute;
+    right: 8px;
+    top: -32px;
+    border-width: 20px 26px;
+    border-style: solid;
+    border-color:transparent transparent pink transparent ;
+}
+.table__hidden::after{
+    z-index: 10000;
+    content: "";
+    position: absolute;
+    right: 190px;
+    top: -32px;
+    border-width: 20px 26px;
+    border-style: solid;
+    border-color:transparent transparent pink transparent ;
+}
+/*  */
+.right__hide::before{
+    z-index: 10000;
+    content: "";
+    position: absolute;
+    right:100%;
+    top:5px ;
+    border-width: 20px 26px;
+    border-style: solid;
+    border-color:transparent pink transparent transparent ;
+}
+.content{padding-top: 80px;}
+.ulfooter  li{list-style-type: none;padding: 2px;}
+.divsanpham{padding: 10px;border: 1px solid whitesmoke;margin-top: 20px;}
+.divsanpham h3{border-bottom: 1px solid lightgray ;padding: 10px;}
+#logo{width: 100%;height: 100%;}
+.congtru{float: right;}#boloc{box-sizing: border-box; padding: 10px;border-radius: 10px;}
+#nutloc{float: right;}
+.tieudesanpham .tren{margin-top: 10px;border-bottom: 1px solid black;}
+.tieudesanpham .tren p{font-weight: bold;font-size: 20px;}
+.tieudesanpham .tren button{float: right;}
+.tieudesanpham .tren button ul {width: 200px;list-style-type: none;display: none;position: relative;padding: 0px;z-index: 10;}
+.tieudesanpham .tren button:hover ul{position: absolute;display: block; top: 50px;}
+.tieudesanpham .tren button:hover ul li{ padding: 10px;}
+.tieudesanpham .duoi{padding: 10px;border-bottom: 1px solid black;font-size: 16px;}
+.tieudesanpham .duoi button{border: 1px solid white;border-radius: 5px;padding: 5px;}
+.tieudesanpham .duoi .btnvang{background-color: #F2E70F;}
+.tieudesanpham .duoi .btndo{background-color: #F85928;}
+.dinhdanga > a{text-decoration: none;color:none;margin-left: 10px;}
+#odangnhap{position: relative;}
+#odangnhap  #bangdangnhap{width: 300px;height: 300px;background-color: white; position: absolute;top: 40px;border-radius: 10px; padding-top: 20px;text-align: center;display: none;}
+#bangdangnhap button{width: 80%;padding: 10px;margin-top: 10px;vertical-align: middle;}
+#bangdangnhap img{width: 10%;float: left;}
+#slide{padding-left: 10px; }
+#menuloai{margin-top: 25px;padding: 5px; }
+#menuloai a{color: black;font-size: 15px;position: relative;text-decoration: none; }
+#menuloai a i.fa-angle-right { float: right; }
+#menuloai a div{display: none;position: absolute; z-index: 2; background-color: white;width: 670px;height: 300px;left: 195px;top: -2px;box-shadow: 1px 5px 5px darkgrey, -2px -2px 5px darkgrey ;}
+#slide img{height: 120%;border-radius: 5px;}
+#hinhbanner {margin-top: 25px;padding-left: 5px;float: right;margin-left: -5px;}
+#hinhbanner {padding: 0px 0px 0px 5px }
+#hinhbanner  img{width: 100%;margin-bottom: 5px;}
+.card{ border: 1px solid white;}
+.card-title a{color: #474c51;}
+.cardGia{flex-basis: 130px;width: 130px;height: 28px;border-radius: 15px;background-color: #e63213;text-align: center;font-size: 18px;line-height: 28px;font-weight: 500;overflow: hidden;position: relative;z-index: 1;color: #fff;}
+.add__cart{flex-basis: 130px;width: 130px;height: 32px;border-radius: 15px;background-color: green !important;text-align: center;font-size: 18px;line-height: 30px;font-weight: 500;overflow: hidden;position: relative;z-index: 1;color: #fff;margin-left: 13px;}
+.cauhinh p{display: inline;color: #75797cd5;font-size: 11px;margin-right: 5px;}
+.card-title{font-size: 17px;}
+.card-title a{text-decoration: none;}
+.card-body:hover .card-title a{color:#0168fa}
+.dong2hinhanh{padding: 0px;}
+.dong2hinhanh div img{ width: 100%; height: 150px;border-radius: 5px;}
+.dong3hinhanh{padding: 0px;}
+.dong3hinhanh div img{width: 100%;height: 200px; border-radius: 5px;}
+div.divsanpham h3{font-size: 23px;font-family: inherit;text-transform: uppercase;}
+div.divsanpham a{text-transform: none; font-size: 16px;}
+div.dongcuoi{padding: 0px;}
+div.dongcuoi div{margin: 0px;}
+div.dongcuoi div img{ margin: 0px;width: 100%; height: 200px;}
+.headtora{
+    opacity: 0.9;
+}
+.navtora{
+    animation-name: scroll-hide;animation-duration: 1s;
+}
+.navtora__hide{display: none !important;}
+@keyframes scroll-hide {
+    from {height:35px;}
+    to {height: 0px;}
+}
+.form__tora{margin-top: 24px !important;}
+.lh__tora{margin-top: 0px;}
+.contaier-fluid{font-size: 13px;color: slategray;text-align: center;}
+.h-100:hover a img{animation-name: pro_hover;animation-duration: 1s;} 
+@media screen and (max-width: 1184px) {
+    .header__container-form{display: none;}
+    .header__container-lh{display: none;}
+    .header__container-login-card{display: none;}
+    /* .header_responsive{display: block;} */
+    .navbar-inverse{display: block;}
+    .header__container{display: none;}
+    .logo__line2{margin-bottom: 0px;}
+    .navbar-brand{font-size: 1rem !important;}
+    .menu{display: none;}
+    #hinhbanner{display: none;}
+    .dropdown-menu{background-color:rgb(250,84,48);border: 0px;}
+  }
+@keyframes pro_hover {
+    from {padding: 0px;}
+    to {padding: 20px;}
+  }
+.cart__hidden{position: absolute;}
+.cart__hidden-heading{text-align: left; margin: 8px 0 8px 12px;font-size: 1.4rem; color: #999;}
+/* number cart */
+.badge {padding-left: 9px;padding-right: 9px;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;}
+.label-warning[href],
+.badge-warning[href] {background-color: #c67605;}
+#lblCartCount {font-size: 12px;background: #ff0000;color: #fff;padding: 0 5px;vertical-align: top;margin-left: -10px; }
+
+/* navbar */
+.nabar__container{display: flex;margin: auto;justify-content: space-between;width: 1166.8px;height: 35px;font-size: 100%;}
+.header__navbar-list{display: flex;padding-left: 0px;}
+.header__qr{z-index: 10000;width: 200px;height: 200px;position: absolute;color: #fff;display: none;}
+.header__qr-app{display: flex;width:100%;flex-direction: row;background-color: #fff;margin-top: -26px;}
+.header__qr-link{width: 100%;height: 100%;padding: 13px;}
+.header__qr-img{width: 100%;height: 180px;}
+.header__qr-download-img{width: 100%;height: 100%;}
+.header__notify{display: none;}
+.header__notify-list{list-style: none;}
+.header__navbar-list{list-style: none;}
+.header__navbar-item{padding: 10px;color: #fff;}
+.header__navbar-item a{color: #fff !important;}
+.logo__line1-text{text-align: center;margin-top: 15px;margin-left: 30px;}
+/* notify */
+.notify__item{height: 100%; margin: 15px;}
+.notify__item-container{display: flex;height: 100%; margin: auto;}
+.navbar__notify{position: absolute;display: flex;z-index: 10000;flex-direction: column;background-color: pink;border-radius: 15px;color: black;margin-top: 20px;display: none;}
+.notify__item-img{width: 50px;height: 50px;}
+.notify__item-i{max-width: 100%;}
+.notify__items{display: flex;flex-direction: column;}
+hr{margin: 0px;}
+.notify__h4{margin-left: 14px;}
+.notify__item-right{margin-left: 3px;}
+.navbar__notify::after{
+    z-index: 10000;
+    content: "";
+    position: absolute;
+    right: 286px;
+    top: -39px;
+    border-width: 20px 26px;
+    border-style: solid;
+    border-color:transparent transparent pink transparent ;
+}
+.h-100 a img{height: 255px}
+div.divsanpham h3 a{float: right;font-size: 18px;}
+.cartGG{background-color: blue;color: #fff;width: 130px;height: 28px;border-radius: 15px;text-align: center;font-size: 18px;text-decoration: line-through;}
+
+
+
+

@@ -1,0 +1,55 @@
+.container__body{padding-top: 95px;}
+div.chiTietSanPham{position: relative;}
+div.chiTietSanPham .moTaSanPham{
+   position: absolute;
+   display: none;
+   left: 100%;
+   z-index: 2;
+   background-color: white;
+   width: 120%;
+   height: 10%;
+   box-shadow: 2px 2px 4px 4px gray;
+}
+div.chiTietSanPham1 .moTaSanPham{
+    position: absolute;
+    display: none;
+    left: -120%;
+    z-index: 2;
+    background-color: white;
+    width: 120%;
+    height: 10%;
+    box-shadow: 2px 2px 4px 4px gray;
+}
+
+.card{border: 1px solid white;}
+.card-title a{color: #474c51;}
+.cardGia{
+    flex-basis: 130px;
+    width: 130px;
+    height: 28px;
+    border-radius: 15px;
+    background-color: #e63213;
+    text-align: center;
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 500;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    color: #fff;
+}
+.cauhinh p{display: inline;color: #75797cd5;font-size: 11px;margin-right: 5px;}
+.card-title{font-size: 17px;}
+.card-title a{text-decoration: none;}
+.card-body:hover .card-title a{color:#0168fa}
+.btn1{font-size:13px;}
+.sortPrice li a{text-decoration: none;}
+.sortPrice li:hover a{color: red ;}
+.card-link span:hover{color: red;}
+.card-link i:hover{color: red;}
+.fa-check-square{color: green;}
+.btn-primary{width: auto;}
+.container__body{padding-left: 0px;}
+.col-lg-3{height: 800px;}
+.col-lg-9 .my-4{background-color: white;}
+.container h6{color: red;}

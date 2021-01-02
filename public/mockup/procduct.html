@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Trang chủ</title>
+    <!-- Bootstrap -->
+    <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Icon -->
+    <link rel="stylesheet" href="./font/css/all.css">
+    <!-- nhúng css -->
+    <link rel="stylesheet" href="./css/product.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <div class="app">
+        <header class="header">
+            <nav class="nabar__container">
+                <ul class="header__navbar-list">
+                    <li class="header__navbar-item header__navbar-item--has-qr header__navbar-item--separate">
+                        Tải ứng dụng
+                        <div class="header__qr">
+                            <img src="./images/navbar/qr_code.png" alt="QR Code" class="header__qr-img" />
+                            <div class="header__qr-app">
+                                <a href="" class="header__qr-link">
+                                    <img src="./images/navbar/google_play.png" alt="Google Play"
+                                        class="header__qr-download-img" />
+                                </a>
+                                <a href="" class="header__qr-link">
+                                    <img src="./images/navbar/appstore.png" alt="App Store"
+                                        class="header__qr-download-img" />
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="header__navbar-item">
+                        <span class="header__navbar-title--no-pointer">Kết nối</span>
+                        <a href="" class="header__navbar-icon-link">
+                            <i class="header__navbar-icon fab fa-facebook"></i>
+                        </a>
+                        <a href="" class="header__navbar-icon-link">
+                            <i class="header__navbar-icon fab fa-instagram"></i>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="header__navbar-list">
+                    <li class="header__navbar-item header__navbar-item--has-notify">
+                        <a href="" class="header__navbar-item-link">
+                            <i class="header__navbar-icon far fa-bell"></i>
+                            Thông báo
+                        </a>
+                        <!--Thông báo mới nhận -->
+                        <div class="navbar__notify">
+                            <h5 class="notify__h4">
+                                Thông báo mới nhận
+                            </h5>
+                            <hr>
+                            <div class="notify__items">
+                                <div class="notify__item">
+                                    <div class="notify__item-container">
+                                        <a href="#" class="notify__item-img"><img src="./images/notify/notify__img.png" alt="" class="notify__item-i"></a>
+                                        <div class="notify__item-right">
+                                            <h6 class="notify__item-title">Hot! Đón giáng sinh với voucher 100k</h6>
+                                            <div class="notify__item-content">
+                                                Duy nhất một đêm...
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="notify__item">
+                                    <div class="notify__item-container">
+                                        <a href="#" class="notify__item-img"><img src="./images/notify/notify__img.png" alt="" class="notify__item-i"></a>
+                                        <div class="notify__item-right">
+                                            <h6 class="notify__item-title">Hot! Đón giáng sinh với voucher 100k</h6>
+                                            <div class="notify__item-content">
+                                                Duy nhất một đêm...
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="notify__item">
+                                    <div class="notify__item-container">
+                                        <a href="#" class="notify__item-img"><img src="./images/notify/notify__img.png" alt="" class="notify__item-i"></a>
+                                        <div class="notify__item-right">
+                                            <h6 class="notify__item-title">Hot! Đón giáng sinh với voucher 100k</h6>
+                                            <div class="notify__item-content">
+                                                Duy nhất một đêm...
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="header__navbar-item">
+                        <a href="" class="header__navbar-item-link">
+                            <i class="header__navbar-icon far fa-question-circle"></i>
+                            Trợ giúp
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header__container">
+                <div class="header__container-logo">
+                    <div class="logo__line1">
+                        <p class="logo__line1-text"><a href="./index.html">TLU_Shop</a></p>
+                    </div>
+                </div>
+                <div class="header__container-form">
+                    <form class="form__tag">
+                        <div class="input-group">
+                            <input type="text" class="form-control"
+                                placeholder="Tên Laptop, hãng sản xuất, cấu hình... ">
+                            <button class="btn btn-warning"><i class="fas fa-search"></i></button>
+
+                        </div>
+                    </form>
+                </div>
+                <div class="header__container-lh">
+                    <div class="lh__line1">
+                        <p class="lh__line1-text">0964627305</p>
+                    </div>
+                    <p class="lh__line2">
+                        Hotline hỗ trợ khách hàng
+                    </p>
+                </div>
+                <div class="header__container-login-card">
+                    <div class="btn__card">
+                        <button class="bt__card"> <i class="fa fa-shopping-cart"></i><span class='badge badge-warning'
+                                id='lblCartCount'>1</span> Giỏ hàng</button>
+                        <div class="cart__hidden">
+                            <h4 class="cart__hidden-heading">Sản phẩm mới thêm</h4>
+                            <hr>
+                            <div class="cart__product">
+                                <div class="cart__product-item">
+                                    <div class="cart__product-container">
+                                        <div class="cpi__left">
+                                            <a href="" class="cpi__left-img"><img src="./images/sanpham/anh6.jpg"
+                                                    alt=""></a>
+                                            <div class="cpi__left-content">
+                                                <span class="content__name">
+                                                    Lenovo Ideapad L340-15IRH 81LK00FAVN - Intel Core i5
+                                                </span>
+                                                <span class="content__price">
+                                                    <span class="cart__quantity">1</span>*<span
+                                                        class="cart__price">15990000</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <button class="cpi__right"><i class="fas fa-trash-alt"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="total__price">
+                                Tổng tiển :
+                                <span class="cart__total-price">15990000</span>
+                            </div>
+                            <div class="btn__checkout">
+                                <button><a href="./card.html">Đặt hàng</a></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn__login">
+                        <button class="bt__login"><i class="fas fa-users"></i> Đăng nhập</button>
+                        <div class="table__hidden">
+                            <div class="table__hidden-contaier">
+                                <a href="login.html"><button class="btn btn-warning btn__t2"><i
+                                            class="fas fa-users"></i> Đăng
+                                        nhập</button></a>
+                                <a href="signin.html"><button class="btn btn-warning btn__t2"><i
+                                            class="fas fa-registered"></i> Tạo tài
+                                        khoản</button></a>
+                                <a href="login.html"><button class="btn btn-primary">Đăng nhập
+                                        Facebook
+                                    </button></a>
+                                <a href="login.html"><button class="btn btn-danger">Đăng nhập
+                                        Google </button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="./index.html">
+                            <div class="header__container-logo">
+                                <div class="logo__line1">
+                                    <p class="logo__line1-text">TLU_Shop</p>
+                                </div>
+                                <p class="logo__line2">
+                                    Hệ thống bán lẻ uy tín
+                                </p>
+                            </div>
+                        </a>
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <i class="fa fa-bars" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="#">Giỏ hàng</a></li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Danh mục<span
+                                        class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Laptop dell</a></li>
+                                    <li><a href="#">Laptop Macbook</a></li>
+                                    <li><a href="#">Laptop Lenovo</a></li>
+                                    <li><a href="#">Khác</a></li>
+                                </ul>
+                            </li>
+                            <li class="active"><a href="#">Đăng ký</a></li>
+                            <li class="active"><a href="#">Đăng nhập</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!-- Contents -->
+
+        <div class="my-4">
+            <div class="container bg-white">
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4 com-md-4 col-lg-4 col-xl-4 my-5">
+                        <div id="demo" class="carousel slide " data-ride="carousel">
+                            <ul class="carousel-indicators">
+                                <li data-target="#demo" data-slide-to="0" class="active li_demo"></li>
+                                <li data-target="#demo" data-slide-to="1" class="li_demo">
+                                </li>
+                                <li data-target="#demo" data-slide-to="2" class="li_demo" li>
+                                <li data-target="#demo" data-slide-to="3" class="li_demo">
+                                </li>
+
+                            </ul>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="./images/chitietsanpham/1.jpg" alt="hinh1">
+                                    <div class="carousel-caption">
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./images/chitietsanpham/2.png" alt="hinh2">
+                                    <div class="carousel-caption">
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./images/chitietsanpham/3.png" alt="hinh3">
+                                    <div class="carousel-caption">
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./images/chitietsanpham/4.png" alt="hinh4">
+                                    <div class="carousel-caption">
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#demo" data-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div class="col-xs-8 col-sm-8 com-md-8 col-lg-8 col-xl-8">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 com-md-12 col-lg-12 col-xl-12">
+                                <h3>Laptop Dell Precision M4800 I7 4800MQ/ RAM 8GB/ HDD 500GB+SSD 128GB/ K1100/ 15.6
+                                    INCH ...</h3>
+                                <p> Mã SP: 003085</p>
+                                <b>Thương hiệu: Dell </b> <small class="text-muted">&#9733; &#9733;
+                                    &#9733; &#9733; &#9734;</small>
+                                <b> 1 Đánh giá </b>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row row__flex">
+                            <div class="col-xs-7 col-sm-7 com-md-7 col-lg-7 col-xl-7">
+                                <p>Giá thường: <b>12.290.000đ</b></p>
+                                <div class="container">
+
+                                    <ul class="list-group">
+                                        <li class="list-group-item list-group-item-info">KHUYẾN MÃI, ƯU ĐÃI</li>
+                                        <li class="list-group-item list-group-item-light">
+                                            <ul>
+                                                <li class="li_gr_it">1 Balo</li>
+                                                <li class="li_gr_it">1 Chuột không dây chính hãng</li>
+                                                <li class="li_gr_it">1 Lót chuột razer
+                                                <li class="li_gr_it">Cài đặt phần mềm diệt virut trọn đời</li>
+                                        </li>
+                                    </ul>
+                                    </li>
+                                    </ul>
+                                </div>
+                                <div class="cauhinh">
+                                    <div class="row">
+                                        <div class="col-xs-4 col-sm-4 com-md-4 col-lg-4 col-xl-4">
+                                            <form>
+                                                <span>RAM</span>
+                                                <select class="custom-select">
+                                                    <option value=> 8GB </option>
+                                                    <option value=> 16GB </option>
+                                                    <option value=> 32GB </option>
+                                                </select>
+                                            </form>
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4 com-md-4 col-lg-4 col-xl-4">
+                                            <form>
+                                                <span>Screen</span>
+                                                <select class="custom-select">
+                                                    <option value="volvo">FHD 1920x1080 </option>
+                                                    <option value="fiat">3K 3200x1800 </option>
+                                                    <option value="audi">4K 3840x2160 </option>
+                                                </select>
+                                            </form>
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4 com-md-4 col-lg-4 col-xl-4">
+                                            <form>
+                                                <span>Ổ SSD</span>
+                                                <select class="custom-select">
+                                                    <option value="volvo"> SSD 256GB </option>
+                                                    <option value="fiat">SSD 512GB </option>
+                                                    <option value="audi"> HDD 512GB </option>
+                                                </select>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                    <br>
+                                    <p>Thanh toán: <b>12.290.000đ</b></p>
+                                    <div class="row">
+
+                                        <div class="col-xs-6 col-sm-6 com-md-6 col-lg-6 col-xl-6">
+                                            <button class="btn btn-danger">
+                                                <span>ĐẶT MUA NGAY</span>
+                                                <p>Giao hàng nhanh</p>
+                                            </button>
+                                        </div>
+
+                                        <div class="col-xs-6 col-sm-6 com-md-6 col-lg-6 col-xl-6">
+                                            <button class="btn btn-primary">
+                                                <span>MUA TRẢ GÓP 0% </span>
+                                                <p>Xét duyệt nhanh</p>
+                                            </button>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="row" id="re">
+                                        <div class="container">
+                                            <button type="button" class="btn btn-success">MUA TRẢ GÓP
+                                                ONLINE <p>Qua thẻ VISA, MASTER, JCB</p>
+                                            </button>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+
+                            </div>
+
+                            <div class="col-xs-5 col-sm-5 com-md-5 col-lg-5 col-xl-5 table">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td> <img class="chinhanh" src="./images/chitietsanpham/box@2x.png" alt="">
+                                                <span>Trọn bộ gồm có: sạc</span>
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td> <img class="chinhanh" src="./images/chitietsanpham/bao-hanh@2x.png"
+                                                    alt="">
+                                                <span>Bảo hành 24 tháng </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><img class="chinhanh" src="./images/chitietsanpham/doi-tra@2x.png"
+                                                    alt="">
+                                                <span>1 đổi 1 trong 15 ngày nếu lỗi do NSX</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><img class="chinhanh" src="./images/chitietsanpham/tel@2x.png" alt="">
+                                                <span>Liên hệ CSKH 19008948</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><img class="chinhanh" src="./images/chitietsanpham/email@2x.png" alt="">
+                                                <span>Email: nguyenlong3172000@gmail.com</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <br>
+
+                                <div class="col-xs-12 col-sm-12 com-md-12 col-lg-12 col-xl-12 co-12">
+
+                                    <P>Bạn cần chúng tôi gọi lại TƯ VẤN</P>
+                                    <div class="container">
+                                        <form action="/action_page.php">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="usr" name="username"
+                                                    placeholder="Nhập số điện thoại của Anh/Chị">
+                                            </div>
+                                        </form>
+                                        <div>
+
+                                            <button type="button" class="btn btn-warning hotline">
+                                                <p class="p1">
+                                                    HÃY GỌI CHO LẠI CHO TÔI
+                                                    !!! </p>
+                                                <P class="p2">Tôi đang rất
+                                                    quan tâm sản phẩm này</P>
+                                            </button>
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- chi tiết -->
+            </div>
+
+        </div>
+
+
+
+
+        <div class="container">
+            <div class="row my-3 bg-white review">
+                <div class="col-xs-8 col-sm-8 com-md-8 col-lg-8 col-xl-8">
+                    <br>
+                    <h3>Đánh giá chi tiết Dell XPS 15 9560</h3>
+                    <p><b><a href="#">Dell XPS 15 9560</a></b> là thiết kế mới nhất trong dòng <b><a href="#">XPS</a>
+                        </b> chuyên về giải trí,
+                        kiểu dáng hiện đại, màn hình phân giải FHD cùng tính năng cảm ứng đa điểm đem đến trải nghiệm
+                        rất tuyệt vời.
+                        Phần vỏ của XPS 15 9560 được chế tạo từ kim loại nhưng vẫn đảm bảo máy có trọng lượng nhẹ,
+                        chắc chắn và chịu được va chạm rất tốt, mặt dưới được phủ lớp cao su có khả năng chống trượt và
+                        rung lắc.</p>
+                    <br>
+                    <p">
+                        Laptop Dell XPS 15 9560 có một lớp vỏ bằng nhôm nguyên khối phủ khắp toàn diện tích của máy. Lớp
+                        vỏ này được
+                        Dell xử lý cắt CNC (Cắt bằng máy và được lập trình hệ thống), vì được lập trình bằng máy tính
+                        nên độ chính xác
+                        của CNC là tuyệt đối, tọa ra các sản phẩm được cắt gọt rất sắc sảo và đẹp mắt. Lớp nhôm của XPS
+                        15 9560 có tác
+                        dụng chống bám vân tay tạo cảm giác cầm rất là tốt. Dell đã dung chất liệu sợi Carbon để làm
+                        phần vĩ phím cũng
+                        như khu vực chiếu nghỉ tay, đồng thời cách điệu sợi carbon thành các vân carbon vừa giúp cấu
+                        trúc máy bền hơn
+                        và máy nhẹ hơn.
+                        <br>
+                        <br>
+                        Đồng thời, XPS 15 9560 còn sở hữu một kích thước khá vừa vặn với người dùng khi các thông số lần
+                        lượt là 357 x
+                        235 x 11-17 mm, cùng trọng lượng 2.06 kg cho phép người dùng di chuyển máy một cách dễ dàng
+                        <br>
+                        <br>
+                        <b>XPS 15 9560 sở hữu màn hình FHD cực nét</b>
+                        <br>
+                        <br>
+                        <br>
+                        Dell XPS 15 được trang bị màn hình kích thước 15.6 inches chuẩn FULL HD cho độ phân giải
+                        1290X1080 pixels cho
+                        chất lượng hình ảnh hiển thị nét, màu sắc trung thực và góc nhìn có thể mở rộng đến 178 độ mà
+                        hình ảnh không
+                        bị biến đổi dù màu sắc tối hơn một chút. Các bước chuyển màu, mức độ sáng tối cũng như sắc xám
+                        và trắng hiển
+                        thị trên màn hình cũng dễ phân biệt rõ ràng. Tính năng cảm ứng cũng là một điểm nhấn cho sản
+                        phẩm giúp người
+                        dùng thao tác một cách dễ dàng và nhanh chóng.
+                        <br>
+                        <br>
+                        <b>Âm thanh rõ ràng</b>
+                        <br>
+                        <br>
+                        Bộ loa của Dell XPS 15 9560 được trang bị hai cạnh của laptop. Sự bố trí này cho phép giải phóng
+                        mặt bằng loa,
+                        tốt hơn rất nhiều so với các dòng máy trên thị trường trong cùng phân khúc giá. Loa của máy đem
+                        đến âm thanh
+                        chất lượng, to và rõ ràng. Bộ xử lý âm thanh bao gồm cả phần mềm Waves MaxxAudio Pro để điều
+                        chỉnh tốt hơn.
+                        <br>
+                        <br>
+                        <b>Hiệu suất vượt trội với bộ vi xử lý Intel Core i5-7300HQ</b>
+                        <br>
+                        <br>
+                        Máy tính xách tay Dell XPS 15 9560 sở hữu bộ vi xử lý thế hệ thứ 7 mới nhất, mạnh mẽ nhất của
+                        Intel, Intel®
+                        Core™ i5 -7300HQ, cho hiệu suất làm việc vượt trội và tiết kiệm năng lượng một cách hiệu quả,
+                        kết hợp với bộ
+                        nhớ RAM DDR4 dung lượng 8 GB và chipset đồ họa rời <b><a href="#">NVIDIA® GeForce® GTX
+                                1050</a></b>
+                        dung lượng 4 GB mang lại cho máy
+                        một khả năng xử lý công việc hiệu quả, các phần mềm nặng nhất định máy vẫn có thể chạy trơn tru
+                        mà không gặp
+                        phải các hiện tượng thường thấy ở các máy khác là treo và lag.
+
+                        Ngoài ra, XPS 15 9560 còn được trang bị ổ đĩa cứng chuẩn SSD dung lượng lên đến 256GB đem lại
+                        khả năng lưu trữ
+                        dữ liệu và truy cập dữ liệu nhanh chóng.
+                        <br>
+                        <br>
+                        <b>Các cổng kết nối tiện ích</b>
+                        <br>
+                        <br>
+                        Dell XPS 15 9560 được trang bị các cổng kết nối như USB 3.0, USB 3.1 Type-C, Headphone, SD card
+                        slost, HDMI
+                        đem lại khả năng kết nối với các thiết bị ngoại vi một cách nhanh chóng, đem lại sự tiện ích cho
+                        người dùng.
+
+                        Bên cạnh đó, XPS 15 9560 còn được trang bị kết nối Wifi chuẩn IEEE 802.11 ac cho phép người dùng
+                        kết nối
+                        internet nhanh gấp nhiều lần so với các chuẩn trước.
+                        <br>
+                        <br>
+                        <br>
+                        </p>
+                </div>
+                <div class="col-xs-4 col-sm-4 com-md-4 col-lg-4 col-xl-4 bg-light">
+                    <div class="bg-white">
+                        <div class="container">
+                            <H5 class="h5">Thông số kỹ thuật</H5>
+                            <table class="table2">
+                                <tr>
+                                    <td class="c1">-CPU:</td>
+                                    <td class="c2">Intel Core i5-7300HQ 2.50 GHz, 6MB SmartCache Cache, Upto 3.50 GHz
+                                    </td>
+                                <tr>
+                                    <td class="c1">-RAM</td>
+                                    <td class="c2">8GB DDR4 2400MHz (2 slot, max 32GB)</td>
+                                </tr>
+                                <tr>
+                                    <td class="c1">-Ổ cứng:</td>
+                                    <td class="c2">256GB SSD m2 NVMe PCIe</td>
+                                </tr>
+                                <tr>
+                                    <td class="c1">-Màn hình:</td>
+                                    <td class="c2">15.6 inch Full HD 1920 x 1080 AntiGlare IPS</td>
+                                </tr>
+                                <tr>
+                                    <td class="c1">-Kết nối:</td>
+                                    <td class="c2">Wifi chuẩn AC, Bluetooth , 2x USB 3.0, Thunderbolt 3/ USB Type-C, 1x
+                                        HDMI, 1x Kensington
+                                        Lock, Audio Connections</td>
+                                </tr>
+                                <tr>
+                                    <td class="c1">-Pin :</td>
+                                    <td class="c2">84Whr</td>
+                                </tr>
+                                <tr>
+                                    <td class="c1">-Trọng lượng:</td>
+                                    <td class="c2">1.8 Kg</td>
+                                </tr>
+                                <tr>
+                                    <td class=" c1">-Kích thước:</td>
+                                    <td class="c2">357mm x 235mm x (11-17)mm</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- /.container -->
+
+        <!-- Footer -->
+        <footer class="py-5 my-3 bg-white">
+            <div class="container ">
+                <div class="row">
+                    <div class="col-6 ulfooter">
+                        <h5 xss=removed>TLU_Shop</h5>
+                        <hr>
+
+                        <p>Địa chỉ: Thái Bình</p>
+                        <p>Hotline bán hàng: 0963283153 (Phương Thảo)</p>
+                        <p>Hotline kỹ thuật: 0964627305 (Long)</p>
+                        <p>Email: nguyenlong3172000@gmail.com</p>
+                        <div class="container">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-google-plus"></i></a>
+                            <a href="#"><i class="fab fa-youtube-square"></i></a>
+                            <a href="#"><i class="fab fa-twitter-square"></i></a>
+                        </div>
+
+                    </div>
+
+                    <div class="col-3 ulfooter">
+                        <h5>CHÍNH SÁCH CHUNG</h5>
+                        <hr>
+
+                        <p><a href="gioithieu.html">Chính sách đổi trả hàng</a></p>
+                        <p><a href="gioithieu.html">Chính sách vận chuyển</a></p>
+                        <p><a href="gioithieu.html">Chính sách bán hàng online</a></p>
+                        <p><a href="gioithieu.html">Chính sách bảo hành</a></p>
+                        <p><a href="gioithieu.html">Chính sách trả góp</a></p>
+
+
+                    </div>
+
+                    <div class="col-3 ulfooter">
+                        <h5>TRỢ GIÚP</h5>
+
+                        <hr>
+
+
+                        <p><a href="gioithieu.html">Giới thiệu</a></p>
+                        <p><a href="gioithieu.html">Thông tin liên lạc</a></p>
+                        <p><a href="gioithieu.html">Hướng dẫn mua hàng online</a></p>
+                        <p><a href="gioithieu.html">Hướng dẫn trả góp</a></p>
+                        <p><a href="gioithieu.html">Chính sách bảo hành</a></p>
+                        <p xss=removed><a href="gioithieu.html">Chính sách trả góp</a></p>
+                    </div>
+                </div>
+            </div>
+
+
+        </footer>
+
+        <div class="bg-light contaier-fluid ">
+            ©2020 TLU_Shop Copyright, All Rights Reserved.
+            <br>
+            <br>
+        </div>
+        <!-- Bootstrap core JavaScript -->
+        <script src="./vendor/jquery/jquery.min.js"></script>
+        <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="./js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Trang chủ</title>
+    <!-- Bootstrap -->
+    <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Icon -->
+    <link rel="stylesheet" href="./font/css/all.css">
+    <!-- nhúng css -->
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/listProducts.css">
+</head>
+
+<body>
+    <div class="app">
+        <header class="header">
+            <nav class="nabar__container">
+                <ul class="header__navbar-list">
+                    <li class="header__navbar-item header__navbar-item--has-qr header__navbar-item--separate">
+                        Tải ứng dụng
+                        <div class="header__qr">
+                            <img src="./images/navbar/qr_code.png" alt="QR Code" class="header__qr-img" />
+                            <div class="header__qr-app">
+                                <a href="" class="header__qr-link">
+                                    <img src="./images/navbar/google_play.png" alt="Google Play"
+                                        class="header__qr-download-img" />
+                                </a>
+                                <a href="" class="header__qr-link">
+                                    <img src="./images/navbar/appstore.png" alt="App Store"
+                                        class="header__qr-download-img" />
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="header__navbar-item">
+                        <span class="header__navbar-title--no-pointer">Kết nối</span>
+                        <a href="" class="header__navbar-icon-link">
+                            <i class="header__navbar-icon fab fa-facebook"></i>
+                        </a>
+                        <a href="" class="header__navbar-icon-link">
+                            <i class="header__navbar-icon fab fa-instagram"></i>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="header__navbar-list">
+                    <li class="header__navbar-item header__navbar-item--has-notify">
+                        <a href="" class="header__navbar-item-link">
+                            <i class="header__navbar-icon far fa-bell"></i>
+                            Thông báo
+                        </a>
+                        <!--Thông báo mới nhận -->
+                        <div class="navbar__notify">
+                            <h5 class="notify__h4">
+                                Thông báo mới nhận
+                            </h5>
+                            <hr>
+                            <div class="notify__items">
+                                <div class="notify__item">
+                                    <div class="notify__item-container">
+                                        <a href="#" class="notify__item-img"><img src="./images/notify/notify__img.png"
+                                                alt="" class="notify__item-i"></a>
+                                        <div class="notify__item-right">
+                                            <h6 class="notify__item-title">Hot! Đón giáng sinh với voucher 100k</h6>
+                                            <div class="notify__item-content">
+                                                Duy nhất một đêm...
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="notify__item">
+                                    <div class="notify__item-container">
+                                        <a href="#" class="notify__item-img"><img src="./images/notify/notify__img.png"
+                                                alt="" class="notify__item-i"></a>
+                                        <div class="notify__item-right">
+                                            <h6 class="notify__item-title">Hot! Đón giáng sinh với voucher 100k</h6>
+                                            <div class="notify__item-content">
+                                                Duy nhất một đêm...
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="notify__item">
+                                    <div class="notify__item-container">
+                                        <a href="#" class="notify__item-img"><img src="./images/notify/notify__img.png"
+                                                alt="" class="notify__item-i"></a>
+                                        <div class="notify__item-right">
+                                            <h6 class="notify__item-title">Hot! Đón giáng sinh với voucher 100k</h6>
+                                            <div class="notify__item-content">
+                                                Duy nhất một đêm...
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="header__navbar-item">
+                        <a href="" class="header__navbar-item-link">
+                            <i class="header__navbar-icon far fa-question-circle"></i>
+                            Trợ giúp
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header__container">
+                <div class="header__container-logo">
+                    <div class="logo__line1">
+                        <p class="logo__line1-text"><a href="./index.html">TLU_Shop</a></p>
+                    </div>
+                </div>
+                <div class="header__container-form">
+                    <form class="form__tag">
+                        <div class="input-group">
+                            <input type="text" class="form-control"
+                                placeholder="Tên Laptop, hãng sản xuất, cấu hình... ">
+                            <button class="btn btn-warning"><i class="fas fa-search"></i></button>
+
+                        </div>
+                    </form>
+                </div>
+                <div class="header__container-lh">
+                    <div class="lh__line1">
+                        <p class="lh__line1-text">0964627305</p>
+                    </div>
+                    <p class="lh__line2">
+                        Hotline hỗ trợ khách hàng
+                    </p>
+                </div>
+                <div class="header__container-login-card">
+                    <div class="btn__card">
+                        <button class="bt__card"> <i class="fa fa-shopping-cart"></i><span class='badge badge-warning'
+                                id='lblCartCount'>1</span> Giỏ hàng</button>
+                        <div class="cart__hidden">
+                            <h4 class="cart__hidden-heading">Sản phẩm mới thêm</h4>
+                            <hr>
+                            <div class="cart__product">
+                                <div class="cart__product-item">
+                                    <div class="cart__product-container">
+                                        <div class="cpi__left">
+                                            <a href="" class="cpi__left-img"><img src="./images/sanpham/anh6.jpg"
+                                                    alt=""></a>
+                                            <div class="cpi__left-content">
+                                                <span class="content__name">
+                                                    Lenovo Ideapad L340-15IRH 81LK00FAVN - Intel Core i5
+                                                </span>
+                                                <span class="content__price">
+                                                    <span class="cart__quantity">1</span>*<span
+                                                        class="cart__price">15990000</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <button class="cpi__right"><i class="fas fa-trash-alt"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="total__price">
+                                Tổng tiển :
+                                <span class="cart__total-price">15990000</span>
+                            </div>
+                            <div class="btn__checkout">
+                                <button><a href="./card.html">Đặt hàng</a></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn__login">
+                        <button class="bt__login"><i class="fas fa-users"></i> Đăng nhập</button>
+                        <div class="table__hidden">
+                            <div class="table__hidden-contaier">
+                                <a href="login.html"><button class="btn btn-warning btn__t2"><i
+                                            class="fas fa-users"></i> Đăng
+                                        nhập</button></a>
+                                <a href="signin.html"><button class="btn btn-warning btn__t2"><i
+                                            class="fas fa-registered"></i> Tạo tài
+                                        khoản</button></a>
+                                <a href="login.html"><button class="btn btn-primary">Đăng nhập
+                                        Facebook
+                                    </button></a>
+                                <a href="login.html"><button class="btn btn-danger">Đăng nhập
+                                        Google </button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="./index.html">
+                            <div class="header__container-logo">
+                                <div class="logo__line1">
+                                    <p class="logo__line1-text">TLU_Shop</p>
+                                </div>
+                                <p class="logo__line2">
+                                    Hệ thống bán lẻ uy tín
+                                </p>
+                            </div>
+                        </a>
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <i class="fa fa-bars" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="#">Giỏ hàng</a></li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Danh mục<span
+                                        class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Laptop dell</a></li>
+                                    <li><a href="#">Laptop Macbook</a></li>
+                                    <li><a href="#">Laptop Lenovo</a></li>
+                                    <li><a href="#">Khác</a></li>
+                                </ul>
+                            </li>
+                            <li class="active"><a href="#">Đăng ký</a></li>
+                            <li class="active"><a href="#">Đăng nhập</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!-- Page Content -->
+        <div class="container container__body">
+            <div class="row">
+                <div class="my-4 col-lg-3">
+                    <div id="boloc" class=" bg-white">
+                        <form>
+                            <button id="nutloc" class="btn btn-danger"><i class="fas fa-filter"></i> Lọc</button>
+                        </form>
+                        <h3>Bộ Lọc</h3>
+                        <hr>
+                        <!-- Bộ lọc-->
+                        <div>
+                            <div id="accordion">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                                            <span>Hãng sản xuất</span> <i class="fas fa-plus congtru"></i>
+                                        </a>
+                                    </div>
+                                    <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                                        <div class="card-body">
+                                            <form>
+                                                <input type="text" class="form-control" placeholder="Tìm thương hiệu">
+                                                <br>
+                                                <input type="checkbox"> <label for="">Dell</label>
+                                                <br>
+                                                <input type="checkbox"> <label for="">Asus</label>
+                                                <br>
+                                                <input type="checkbox"> <label for="">Apple</label>
+                                                <br>
+                                                <input type="checkbox"> <label for="">Lenovo</label>
+                                                <br>
+                                                <input type="checkbox"> <label for="">HP</label>
+                                                <br>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+                                            <span>Mức giá</span> <i class="fas fa-plus congtru"></i>
+                                        </a>
+                                    </div>
+                                    <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                                        <div class="card-body">
+                                            <form>
+                                                <input type="checkbox" id="tatca"> <label for="tatca"> Tất cả</label>
+                                                <br>
+                                                <input type="checkbox" id="gia1"> <label for="gia1"> Dưới 5
+                                                    triệu</label>
+                                                <br>
+                                                <input type="checkbox" id="gia2"> <label for="gia2">Từ 5 - 10
+                                                    triệu</label>
+                                                <br>
+                                                <input type="checkbox" id="gia3"> <label for="gia3">Từ 10 - 15
+                                                    triêu</label>
+                                                <br>
+                                                <input type="checkbox" id="gia4"> <label for="gia4">Từ 15 - 20
+                                                    triệu</label>
+                                                <br>
+                                                <input type="checkbox" id="gia5"> <label for="gia5">Trên 20
+                                                    triệu</label>
+                                                <br>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+                                            <span>Màn hình</span> <i class="fas fa-plus congtru"></i>
+                                        </a>
+                                    </div>
+                                    <div id="collapseThree" class="collapse" data-parent="#accordion">
+                                        <div class="card-body">
+                                            <form>
+                                                <input type="checkbox" id="tatca1"> <label for="tatca1"> Tất cả</label>
+                                                <br>
+                                                <input type="checkbox" id="manhinh1"> <label for="manhinh1"> Khoảng 11
+                                                    inchs</label>
+                                                <br>
+                                                <input type="checkbox" id="manhinh2"> <label for="manhinh2"> Khoảng 12
+                                                    inchs</label>
+                                                <br>
+                                                <input type="checkbox" id="manhinh3"> <label for="manhinh3"> Khoảng 13
+                                                    inchs</label>
+                                                <br>
+                                                <input type="checkbox" id="manhinh4"> <label for="manhinh4"> Khoảng 14
+                                                    inchs</label>
+                                                <br>
+                                                <input type="checkbox" id="manhinh5"> <label for="manhinh5"> Khoảng 15
+                                                    inchs</label>
+                                                <br>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseFour">
+                                            <span>Ram</span> <i class="fas fa-plus congtru"></i>
+                                        </a>
+                                    </div>
+                                    <div id="collapseFour" class="collapse" data-parent="#accordion">
+                                        <div class="card-body">
+                                            <form>
+                                                <input type="checkbox" id="tatca2"> <label for="tatca2"> Tất cả</label>
+                                                <br>
+                                                <input type="checkbox" id="ram1"> <label for="ram1"> 2 GB</label>
+                                                <br>
+                                                <input type="checkbox" id="ram2"> <label for="ram2"> 4 GB</label>
+                                                <br>
+                                                <input type="checkbox" id="ram3"> <label for="ram3"> 8 GB</label>
+                                                <br>
+                                                <input type="checkbox" id="ram4"> <label for="ram4"> 16 GB</label>
+                                                <br>
+                                                <input type="checkbox" id="ram5"> <label for="ram5"> 32</label>
+                                                <br>
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Bộ lọc-->
+                    </div>
+                </div>
+                <!-- /.col-lg-3 -->
+                <div class="col-lg-9 bg-white my-4">
+                    <div class="tieudesanpham">
+                        <div class="tren">
+                            <p>LAPTOP DELL (29+ sản phẩm)</p>
+                        </div>
+                    </div>
+
+                    <div class="row my-4">
+
+                        <!-- san pham 1-->
+                        <div class="col-lg-4 col-md-6 mb-4">
+
+                            <div class="card h-100 chiTietSanPham">
+
+                                <a href="#"><img class="card-img-top chitiet1" src="./images/sanpham/anh6.jpg"
+                                        alt=""></a>
+
+                                <div class="card-body chitiet1">
+
+                                    <h6 class="card-title">
+                                        <a href="#"> Lenovo Ideapad L340-15IRH 81LK00FAVN - Intel Core i5</a>
+                                    </h6>
+                                    <div class="cardGia">
+                                        15.990.000 đ
+                                    </div>
+                                    <div class="row">
+                                        <button class="add__cart"><span class="add__cart-i"><i
+                                                    class="fa fa-shopping-cart"></i> Thêm vào giỏ</span></button>
+                                    </div>
+                                    <div class="row">
+                                        <div class="container">
+                                            <div class="cauhinh">
+                                                <i class="fas fa-desktop"></i>
+                                                <p> NVIDIA GTX1050 3GB DDR5</p>
+                                                <i class="far fa-hdd"></i>
+                                                <p> HDD 1TB </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="container">
+                                            <div class="cauhinh">
+                                                <i class="fas fa-memory"></i>
+                                                <p> 8GB DDR4</p>
+                                                <i class="fas fa-weight-hanging"></i>
+                                                <p> 2KG</p>
+                                                <i class="fab fa-creative-commons-sampling-plus"></i>
+                                                <p>Intel Core i5 - 9300H</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="container">
+                                            <div class="cauhinh">
+                                                <i class="fas fa-keyboard"></i>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- viet doan nay-->
+                                <div class="carh h-100 moTaSanPham">
+                                    <div class="container">
+
+                                        <h5>Laptop Acer Nitro 5 2020 AN515-55-58A7 - Intel Core i5</h5>
+
+                                        <h6>10.430.000 đ</h6>
+
+                                        <b>Bảo hành</b>
+                                        <p><i class="fas fa-check-square"></i> Bảo hành 12 thánh một đổi một trong vòng
+                                            15 ngày <a href="#">Xem Chính Sách</a></p>
+                                        <p><i class="fas fa-check-square"></i> Gía ở trên đã bao gồm VAT 10%</p>
+                                        <p><i class="fas fa-check-square"></i> MIỄN PHÍ GIAO HÀNG toàn địa bàn hà nội
+                                        </p>
+                                        <p><b>Kho Hàng: </b>còn hàng</p>
+                                        <hr>
+                                        <p><b>Mô tả tóm tắt: </b>Máy trạm Dell bền bỉ, siêu mát. Cấu hình cao, thiết kế
+                                            ổn. Mượt các phần mềm đồ họa 3D chuyên
+                                            nghiệp</p>
+                                    </div>
+                                </div>
+                                <!-- viet doan nay-->
+                            </div>
+                        </div>
+                        <!-- end san pham 1-->
+
+                        <!-- san pham 2-->
+                        <div class="col-lg-4 col-md-6 mb-4">
+
+                            <div class="card h-100 chiTietSanPham">
+
+                                <a href="#"><img class="card-img-top chitiet2" src="./images/sanpham/anh4.jpg"
+                                        alt=""></a>
+
+                                <div class="card-body chitiet2">
+                                    <h6 class="card-title">
+                                        <a href="#"> Laptop Gaming HP PAVILION GAMING 15-DK0231TX - Intel Core i5</a>
+                                    </h6>
+                                    <div class="cardGia">
+                                        18.990.000 đ
+                                    </div>
+                                    <div class="row">
+                                        <button class="add__cart"><span class="add__cart-i"><i
+                                                    class="fa fa-shopping-cart"></i> Thêm vào giỏ</span></button>
+                                    </div>
+                                    <div class="row">
+                                        <div class="container">
+                                            <div class="cauhinh">
+                                                <i class="fas fa-desktop"></i>
+                                                <p> Card Onboard</p>
+                                                <i class="far fa-hdd"></i>
+                                                <p>HDD 1TB + SSD 180GB</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="container">
+                                            <div class="cauhinh">
+                                                <i class="fas fa-memory"></i>
+                                                <p> 8GB DDR4</p>
+                                                <i class="fas fa-weight-hanging"></i>
+                                                <p> 2.23kg</p>
+                                                <i class="fab fa-creative-commons-sampling-plus"></i>
+                                                <p> Intel Core i5 9300H</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="container">
+                                            <div class="cauhinh">
+                                                <i class="fas fa-keyboard"></i>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- viet doan nay-->
+                                <div class="carh h-100 moTaSanPham">
+                                    <div class="container">
+
+                                        <h5>Laptop Acer Nitro 5 2020 AN515-55-58A7 - Intel Core i5</h5>
+
+                                        <h6>10.430.000 đ</h6>
+
+                                        <b>Bảo hành</b>
+                                        <p><i class="fas fa-check-square"></i> Bảo hành 12 thánh một đổi một trong vòng
+                                            15 ngày <a href="#">Xem Chính Sách</a></p>
+                                        <p><i class="fas fa-check-square"></i> Gía ở trên đã bao gồm VAT 10%</p>
+                                        <p><i class="fas fa-check-square"></i> MIỄN PHÍ GIAO HÀNG toàn địa bàn hà nội
+                                        </p>
+                                        <p><b>Kho Hàng: </b>còn hàng</p>
+                                        <hr>
+                                        <p><b>Mô tả tóm tắt: </b>Máy trạm Dell bền bỉ, siêu mát. Cấu hình cao, thiết kế
+                                            ổn. Mượt các phần mềm đồ họa 3D chuyên
+                                            nghiệp</p>
+                                    </div>
+
+                                </div>
+                                <!-- viet doan nay-->
+                            </div>
+                        </div>
+                        <!-- end san pham 2-->
+
+                        <!-- san pham 3-->
+                        <div class="col-lg-4 col-md-6 mb-4">
+
+                            <div class="card h-100 chiTietSanPham">
+
+                                <a href="#"><img class="card-img-top chitiet3" src="./images/sanpham/anh5.jpg"
+                                        alt=""></a>
+
+                                <div class="card-body chitiet3">
+                                    <h6 class="card-title">
+                                        <a href="#"> Lenovo Legion 5 15IMH05 82AU004XVN </a>
+                                    </h6>
+                                    <div class="cardGia">
+                                        24.790.000 đ
+                                    </div>
+                                    <div class="row">
+                                        <button class="add__cart"><span class="add__cart-i"><i
+                                                    class="fa fa-shopping-cart"></i> Thêm vào giỏ</span></button>
+                                    </div>
+                                    <div class="row">
+                                        <div class="container">
+                                            <div class="cauhinh">
+                                                <i class="fas fa-desktop"></i>
+                                                <p> Card rời GTX 1650 4GB</p>
+                                                <i class="far fa-hdd"></i>
+                                                <p> SSD 512GB NVMe</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="container">
+                                            <div class="cauhinh">
+                                                <i class="fas fa-memory"></i>
+                                                <p> RAM 16GB </p>
+                                                <i class="fas fa-weight-hanging"></i>
+                                                <p> 2.3KG</p>
+                                                <i class="fab fa-creative-commons-sampling-plus"></i>
+                                                <p> AMD Ryzen 5 – 4600H</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="container">
+                                            <div class="cauhinh">
+                                                <i class="fas fa-keyboard"></i>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- viet doan nay-->
+                                <div class="carh h-100 moTaSanPham">
+                                    <div class="container">
+
+                                        <h5>Laptop Acer Nitro 5 2020 AN515-55-58A7 - Intel Core i5</h5>
+
+                                        <h6>10.430.000 đ</h6>
+
+                                        <b>Bảo hành</b>
+                                        <p><i class="fas fa-check-square"></i> Bảo hành 12 thánh một đổi một trong vòng
+                                            15 ngày <a href="#">Xem Chính Sách</a></p>
+                                        <p><i class="fas fa-check-square"></i> Gía ở trên đã bao gồm VAT 10%</p>
+                                        <p><i class="fas fa-check-square"></i> MIỄN PHÍ GIAO HÀNG toàn địa bàn hà nội
+                                        </p>
+                                        <p><b>Kho Hàng: </b>còn hàng</p>
+                                        <hr>
+                                        <p><b>Mô tả tóm tắt: </b>Máy trạm Dell bền bỉ, siêu mát. Cấu hình cao, thiết kế
+                                            ổn. Mượt các phần mềm đồ họa 3D chuyên
+                                            nghiệp</p>
+                                    </div>
+                                </div>
+                                <!-- viet doan nay-->
+                            </div>
+                        </div>
+                        <!-- end san pham 3-->
+                        <!-- san pham 4-->
+                        <div class="col-lg-4 col-md-6 mb-4">
+
+                            <div class="card h-100 chiTietSanPham">
+
+                                <a href="#"><img class="card-img-top chitiet4" src="./images/sanpham/anh2.jpg"
+                                        alt=""></a>
+
+                                <div class="card-body chitiet4">
+                                    <h6 class="card-title">
+                                        <a href="#"> Laptop Acer Nitro 5 2020 AN515-55-58A7 - Intel Core i5</a>
+                                    </h6>
+                                    <div class="cardGia">
+                                        10.430.000 đ
+                                    </div>
+                                    <div class="row">
+                                        <button class="add__cart"><span class="add__cart-i"><i
+                                                    class="fa fa-shopping-cart"></i> Thêm vào giỏ</span></button>
+                                    </div>
+                                    <div class="row">
+                                        <div class="container">
+                                            <div class="cauhinh">
+                                                <i class="fas fa-desktop"></i>
+                                                <p> Card Onboard</p>
+                                                <i class="far fa-hdd"></i>
+                                                <p> HDD 512GB</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="container">
+                                            <div class="cauhinh">
+                                                <i class="fas fa-memory"></i>
+                                                <p> 8GB</p>
+                                                <i class="fas fa-weight-hanging"></i>
+                                                <p> 2KG</p>
+                                                <i class="fab fa-creative-commons-sampling-plus"></i>
+                                                <p> I5-8thGen</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="container">
+                                            <div class="cauhinh">
+                                                <i class="fas fa-keyboard"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- viet doan nay-->
+                                <div class="carh h-100 moTaSanPham">
+                                    <div class="container">
+                                        <h5>Laptop Acer Nitro 5 2020 AN515-55-58A7 - Intel Core i5</h5>
+                                        <h6>10.430.000 đ</h6>
+                                        <b>Bảo hành</b>
+                                        <p><i class="fas fa-check-square"></i> Bảo hành 12 thánh một đổi một trong vòng
+                                            15 ngày <a href="#">Xem Chính Sách</a></p>
+                                        <p><i class="fas fa-check-square"></i> Gía ở trên đã bao gồm VAT 10%</p>
+                                        <p><i class="fas fa-check-square"></i> MIỄN PHÍ GIAO HÀNG toàn địa bàn hà nội
+                                        </p>
+                                        <p><b>Kho Hàng: </b>còn hàng</p>
+                                        <hr>
+                                        <p><b>Mô tả tóm tắt: </b>Máy trạm Dell bền bỉ, siêu mát. Cấu hình cao, thiết kế
+                                            ổn. Mượt các phần mềm đồ họa 3D chuyên
+                                            nghiệp</p>
+                                    </div>
+                                </div>
+                                <!-- viet doan nay-->
+                            </div>
+                        </div>
+                        <!-- end san pham 4-->
+                        <!-- san pham 5-->
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100 chiTietSanPham">
+                                <a href="#"><img class="card-img-top chitiet5" src="./images/sanpham/anh7.jpg"
+                                        alt=""></a>
+                                <div class="card-body chitiet5">
+                                    <h6 class="card-title">
+                                        <a href="#"> Laptop Asus ROG Strix G15 G512-IAL013T - Intel Core i5</a>
+                                    </h6>
+                                    <div class="cardGia">
+                                        18.930.000 đ
+                                    </div>
+                                    <div class="row">
+                                        <button class="add__cart"><span class="add__cart-i"><i
+                                                    class="fa fa-shopping-cart"></i> Thêm vào giỏ</span></button>
+                                    </div>
+                                    <div class="row">
+                                        <div class="container">
+                                            <div class="cauhinh">
+                                                <i class="fas fa-desktop"></i>
+                                                <p> Card Onboard</p>
+                                                <i class="far fa-hdd"></i>
+                                                <p> HDD 512GB</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="container">
+                                            <div class="cauhinh">
+                                                <i class="fas fa-memory"></i>
+                                                <p> 8GB</p>
+                                                <i class="fas fa-weight-hanging"></i>
+                                                <p> 2KG</p>
+                                                <i class="fab fa-creative-commons-sampling-plus"></i>
+                                                <p> I5-8thGen</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="container">
+                                            <div class="cauhinh">
+                                                <i class="fas fa-keyboard"></i>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- viet doan nay-->
+                                <div class="carh h-100 moTaSanPham">
+                                    <div class="container">
+                                        <h5>Laptop Acer Nitro 5 2020 AN515-55-58A7 - Intel Core i5</h5>
+                                        <h6>10.430.000 đ</h6>
+                                        <b>Bảo hành</b>
+                                        <p><i class="fas fa-check-square"></i> Bảo hành 12 thánh một đổi một trong vòng
+                                            15 ngày <a href="#">Xem Chính Sách</a></p>
+                                        <p><i class="fas fa-check-square"></i> Gía ở trên đã bao gồm VAT 10%</p>
+                                        <p><i class="fas fa-check-square"></i> MIỄN PHÍ GIAO HÀNG toàn địa bàn hà nội
+                                        </p>
+                                        <p><b>Kho Hàng: </b>còn hàng</p>
+                                        <hr>
+                                        <p><b>Mô tả tóm tắt: </b>Máy trạm Dell bền bỉ, siêu mát. Cấu hình cao, thiết kế
+                                            ổn. Mượt các phần mềm đồ họa 3D chuyên
+                                            nghiệp</p>
+                                    </div>
+                                </div>
+                                <!-- viet doan nay-->
+                            </div>
+                        </div>
+                        <!-- end san pham 5-->
+                        <!-- san pham 6-->
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100 chiTietSanPham">
+                                <a href="#"><img class="card-img-top chitiet6" src="./images/sanpham/anh8.jpg"
+                                        alt=""></a>
+                                <div class="card-body chitiet6">
+                                    <h6 class="card-title">
+                                        <a href="#"> Laptop Lenovo Ideapad S340-15IWL 81N800RSVN - Intel Core i3</a>
+                                    </h6>
+                                    <div class="cardGia">
+                                        9.590.000 đ
+                                    </div>
+                                    <div class="row">
+                                        <button class="add__cart"><span class="add__cart-i"><i
+                                                    class="fa fa-shopping-cart"></i> Thêm vào giỏ</span></button>
+                                    </div>
+                                    <div class="row">
+                                        <div class="container">
+                                            <div class="cauhinh">
+                                                <i class="fas fa-desktop"></i>
+                                                <p> Intel HD 620</p>
+                                                <i class="far fa-hdd"></i>
+                                                <p> HDD 1TB + SSD 180GB</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="container">
+                                            <div class="cauhinh">
+                                                <i class="fas fa-memory"></i>
+                                                <p> 8GB</p>
+                                                <i class="fas fa-weight-hanging"></i>
+                                                <p> 2KG</p>
+                                                <i class="fab fa-creative-commons-sampling-plus"></i>
+                                                <p> Intel Core i3 8145U</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="container">
+                                            <div class="cauhinh">
+                                                <i class="fas fa-keyboard"></i>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- viet doan nay-->
+                                <div class="carh h-100 moTaSanPham">
+                                    <div class="container">
+
+                                        <h5>Laptop Acer Nitro 5 2020 AN515-55-58A7 - Intel Core i5</h5>
+
+                                        <h6>10.430.000 đ</h6>
+
+                                        <b>Bảo hành</b>
+                                        <p><i class="fas fa-check-square"></i> Bảo hành 12 thánh một đổi một trong vòng
+                                            15 ngày <a href="#">Xem Chính Sách</a></p>
+                                        <p><i class="fas fa-check-square"></i> Gía ở trên đã bao gồm VAT 10%</p>
+                                        <p><i class="fas fa-check-square"></i> MIỄN PHÍ GIAO HÀNG toàn địa bàn hà nội
+                                        </p>
+                                        <p><b>Kho Hàng: </b>còn hàng</p>
+                                        <hr>
+                                        <p><b>Mô tả tóm tắt: </b>Máy trạm Dell bền bỉ, siêu mát. Cấu hình cao, thiết kế
+                                            ổn. Mượt các phần mềm đồ họa 3D chuyên
+                                            nghiệp</p>
+                                    </div>
+                                </div>
+                                <!-- viet doan nay-->
+                            </div>
+                        </div>
+                        <!-- end san pham 6-->
+                        <!-- san pham 7-->
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100 chiTietSanPham">
+                                <a href="#"><img class="card-img-top chitiet7" src="./images/sanpham/anh9.jpg"
+                                        alt=""></a>
+                                <div class="card-body chitiet7">
+                                    <h6 class="card-title">
+                                        <a href="#"> Laptop Lenovo Ideapad L340-15API 81LW00FTVN - AMD Ryzen 7</a>
+                                    </h6>
+                                    <div class="cardGia">
+                                        12.460.000 đ
+                                    </div>
+                                    <div class="row">
+                                        <button class="add__cart"><span class="add__cart-i"><i
+                                                    class="fa fa-shopping-cart"></i> Thêm vào giỏ</span></button>
+                                    </div>
+                                    <div class="row">
+                                        <div class="container">
+                                            <div class="cauhinh">
+                                                <i class="fas fa-desktop"></i>
+                                                <p> AMD Radeon Vega 10</p>
+                                                <i class="far fa-hdd"></i>
+                                                <p> HDD 512GB</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="container">
+                                            <div class="cauhinh">
+                                                <i class="fas fa-memory"></i>
+                                                <p> 8GB</p>
+                                                <i class="fas fa-weight-hanging"></i>
+                                                <p> 2KG</p>
+                                                <i class="fab fa-creative-commons-sampling-plus"></i>
+                                                <p> AMD Ryzen 7-3700U</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="container">
+                                            <div class="cauhinh">
+                                                <i class="fas fa-keyboard"></i>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- viet doan nay-->
+                                <div class="carh h-100 moTaSanPham">
+                                    <div class="container">
+                                        <h5>Laptop Acer Nitro 5 2020 AN515-55-58A7 - Intel Core i5</h5>
+                                        <h6>10.430.000 đ</h6>
+                                        <b>Bảo hành</b>
+                                        <p><i class="fas fa-check-square"></i> Bảo hành 12 thánh một đổi một trong vòng
+                                            15 ngày <a href="#">Xem Chính Sách</a></p>
+                                        <p><i class="fas fa-check-square"></i> Gía ở trên đã bao gồm VAT 10%</p>
+                                        <p><i class="fas fa-check-square"></i> MIỄN PHÍ GIAO HÀNG toàn địa bàn hà nội
+                                        </p>
+                                        <p><b>Kho Hàng: </b>còn hàng</p>
+                                        <hr>
+                                        <p><b>Mô tả tóm tắt: </b>Máy trạm Dell bền bỉ, siêu mát. Cấu hình cao, thiết kế
+                                            ổn. Mượt các phần mềm đồ họa 3D chuyên
+                                            nghiệp</p>
+                                    </div>
+                                </div>
+                                <!-- viet doan nay-->
+                            </div>
+                        </div>
+                        <!-- end san pham 7-->
+                        <!-- san pham 8-->
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100 chiTietSanPham">
+                                <a href="#"><img class="card-img-top chitiet8" src="./images/sanpham/anh10.jpg"
+                                        alt=""></a>
+                                <div class="card-body chitiet8">
+                                    <h6 class="card-title">
+                                        <a href="#"> Laptop Acer Aspire 3 A315-23-R8BA - AMD Ryzen 3</a>
+                                        <br>
+                                        <br>
+                                    </h6>
+                                    <div class="cardGia">
+                                        15.630.000 đ
+                                    </div>
+                                    <div class="row">
+                                        <button class="add__cart"><span class="add__cart-i"><i
+                                                    class="fa fa-shopping-cart"></i> Thêm vào giỏ</span></button>
+                                    </div>
+                                    <div class="row">
+                                        <div class="container">
+                                            <div class="cauhinh">
+                                                <i class="fas fa-desktop"></i>
+                                                <p> Intel UHD 620</p>
+                                                <i class="far fa-hdd"></i>
+                                                <p> HDD 512GB</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="container">
+                                            <div class="cauhinh">
+                                                <i class="fas fa-memory"></i>
+                                                <p> 16GB</p>
+                                                <i class="fas fa-weight-hanging"></i>
+                                                <p> 1.5KG</p>
+                                                <i class="fab fa-creative-commons-sampling-plus"></i>
+                                                <p> Intel Core i3 8145U</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="container">
+                                            <div class="cauhinh">
+                                                <i class="fas fa-keyboard"></i>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- viet doan nay-->
+                                <div class="carh h-100 moTaSanPham">
+                                    <div class="container">
+                                        <h5>Laptop Acer Nitro 5 2020 AN515-55-58A7 - Intel Core i5</h5>
+                                        <h6>10.430.000 đ</h6>
+                                        <b>Bảo hành</b>
+                                        <p><i class="fas fa-check-square"></i> Bảo hành 12 thánh một đổi một trong vòng
+                                            15 ngày <a href="#">Xem Chính Sách</a></p>
+                                        <p><i class="fas fa-check-square"></i> Gía ở trên đã bao gồm VAT 10%</p>
+                                        <p><i class="fas fa-check-square"></i> MIỄN PHÍ GIAO HÀNG toàn địa bàn hà nội
+                                        </p>
+                                        <p><b>Kho Hàng: </b>còn hàng</p>
+                                        <hr>
+                                        <p><b>Mô tả tóm tắt: </b>Máy trạm Dell bền bỉ, siêu mát. Cấu hình cao, thiết kế
+                                            ổn. Mượt các phần mềm đồ họa 3D chuyên
+                                            nghiệp</p>
+                                    </div>
+                                </div>
+                                <!-- viet doan nay-->
+                            </div>
+                        </div>
+                        <!-- end san pham 8-->
+                        <!-- san pham 9-->
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100 chiTietSanPham">
+                                <a href="#"><img class="card-img-top chitiet9" src="./images/sanpham/anh11.jpg"
+                                        alt=""></a>
+                                <div class="card-body chitiet9">
+                                    <h6 class="card-title">
+                                        <a href="#"> Laptop Asus Vivobook S431FA-EB077T - Intel Core i7</a>
+                                    </h6>
+                                    <div class="cardGia">
+                                        16.790.000 đ
+                                    </div>
+                                    <div class="row">
+                                        <button class="add__cart"><span class="add__cart-i"><i
+                                                    class="fa fa-shopping-cart"></i> Thêm vào giỏ</span></button>
+                                    </div>
+                                    <div class="row">
+                                        <div class="container">
+                                            <div class="cauhinh">
+                                                <i class="fas fa-desktop"></i>
+                                                <p>Card Intel HD Graphics 620</p>
+                                                <i class="far fa-hdd"></i>
+                                                <p> HDD 1TB</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="container">
+                                            <div class="cauhinh">
+                                                <i class="fas fa-memory"></i>
+                                                <p> 16GB</p>
+                                                <i class="fas fa-weight-hanging"></i>
+                                                <p> 1.5KG</p>
+                                                <i class="fab fa-creative-commons-sampling-plus"></i>
+                                                <p> Intel Core i7 8565U</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="container">
+                                            <div class="cauhinh">
+                                                <i class="fas fa-keyboard"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- viet doan nay-->
+                                <div class="carh h-100 moTaSanPham">
+                                    <div class="container">
+                                        <h5>Laptop Acer Nitro 5 2020 AN515-55-58A7 - Intel Core i5</h5>
+                                        <h6>10.430.000 đ</h6>
+                                        <b>Bảo hành</b>
+                                        <p><i class="fas fa-check-square"></i> Bảo hành 12 thánh một đổi một trong vòng
+                                            15 ngày <a href="#">Xem Chính Sách</a></p>
+                                        <p><i class="fas fa-check-square"></i> Gía ở trên đã bao gồm VAT 10%</p>
+                                        <p><i class="fas fa-check-square"></i> MIỄN PHÍ GIAO HÀNG toàn địa bàn hà nội
+                                        </p>
+                                        <p><b>Kho Hàng: </b>còn hàng</p>
+                                        <hr>
+                                        <p><b>Mô tả tóm tắt: </b>Máy trạm Dell bền bỉ, siêu mát. Cấu hình cao, thiết kế
+                                            ổn. Mượt các phần mềm đồ họa 3D chuyên
+                                            nghiệp</p>
+                                    </div>
+                                </div>
+                                <!-- viet doan nay-->
+                            </div>
+                        </div>
+                        <!-- end san pham 3-->
+                    </div>
+                    <!-- /.row -->
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item"><a class="page-link" href="#">Trước</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Sau</a></li>
+                    </ul>
+                </div>
+                <!-- /.col-lg-9 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+        <!-- Footer -->
+        <footer class="py-5 my-3 bg-white">
+            <div class="container ">
+                <div class="row">
+                    <div class="col-6 ulfooter">
+                        <h5 xss=removed>TLU_Shop</h5>
+                        <hr>
+                        <p>Địa chỉ: Thái Bình</p>
+                        <p>Hotline bán hàng: 0963283153 (Phương Thảo)</p>
+                        <p>Hotline kỹ thuật: 0964627305 (Long)</p>
+                        <p>Email: nguyenlong3172000@gmail.com</p>
+                        <div class="container">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-google-plus"></i></a>
+                            <a href="#"><i class="fab fa-youtube-square"></i></a>
+                            <a href="#"><i class="fab fa-twitter-square"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="col-3 ulfooter">
+                        <h5>CHÍNH SÁCH CHUNG</h5>
+                        <hr>
+                        <p><a href="gioithieu.html">Chính sách đổi trả hàng</a></p>
+                        <p><a href="gioithieu.html">Chính sách vận chuyển</a></p>
+                        <p><a href="gioithieu.html">Chính sách bán hàng online</a></p>
+                        <p><a href="gioithieu.html">Chính sách bảo hành</a></p>
+                        <p><a href="gioithieu.html">Chính sách trả góp</a></p>
+                    </div>
+                    <div class="col-3 ulfooter">
+                        <h5>TRỢ GIÚP</h5>
+                        <hr>
+                        <p><a href="gioithieu.html">Giới thiệu</a></p>
+                        <p><a href="gioithieu.html">Thông tin liên lạc</a></p>
+                        <p><a href="gioithieu.html">Hướng dẫn mua hàng online</a></p>
+                        <p><a href="gioithieu.html">Hướng dẫn trả góp</a></p>
+                        <p><a href="gioithieu.html">Chính sách bảo hành</a></p>
+                        <p xss=removed><a href="gioithieu.html">Chính sách trả góp</a></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div class="bg-light contaier-fluid ">
+            ©2020 TLU_Shop Copyright, All Rights Reserved.
+            <br>
+            <br>
+        </div>
+        <!-- Bootstrap core JavaScript -->
+        <script src="./vendor/jquery/jquery.min.js"></script>
+        <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="./js/main.js"></script>
+</body>
+
+</html>

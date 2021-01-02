@@ -1,0 +1,36 @@
+ul li span {color:green;background-color: green;}
+.chinhanh{width: 8%;}
+.cauhinh{padding: 20px;}
+.carousel{background-color: cornflowerblue;}
+.table1 {font-size: 13px;display: inline;}
+.table2 tr{border-bottom: 1px solid rgb(209, 203, 203);}
+.c1{padding-right: 40px;margin-bottom: 10px;width: 50%;}
+.c2{padding-bottom: 10px;}
+.row__flex{display: flex;margin-left: 1px;}
+.row .col-xs-7{float: left;}
+.row .col-xs-5{float: right;margin-left: -15px;}
+.my-4{padding-top: 80px;}
+.li_demo{background-color:rgb(121, 115, 110)}
+.li_demo{background-color:rgb(121, 115, 110)}
+.carousel-item img{width: 100%;height: 100%;}
+.col-xs-12 b{color: rgb(51, 121, 185);}
+.col-xs-7 p{color:orange;font-size: 25px;}
+.li_gr_it{font-size: 14px;}
+.cauhinh p{font-size:15px}
+.cauhinh p b{color:orange;font-size: 15px;}
+.col-xs-6 .btn-danger{width: 100%;}
+#re{margin-top: 5px;}
+.container button{width: 100%;}
+.container button p{font-size: 13px;}
+.col-xs-5 table{font-size:14px}
+.co-12{background-color:rgb(243, 240, 240)}
+.form-group input{font-size: 13px;}
+.p1{color:white;font-weight:bold;font-size: 13px;display: inline;}
+.p2{color:white;font-size: 12px;display: inline;}
+.container div .btn-warning{width: 100%; margin-bottom: 10px}
+.container div .hotline{width: 100%; margin-bottom: 10px !important;margin: auto;}
+.review .bg-light{padding: 0px 0px 0px 10px; }
+.container .h5{padding-top:20px}
+.header__navbar-title--no-pointer{color:unset;background-color:unset}
+.bg-white{padding-top: 18px !important}
+.GT{text-decoration: line-through;}
