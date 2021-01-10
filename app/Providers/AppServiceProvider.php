@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Models\dtb_notify;
+use App\Models\cart;
+use Session;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -18,6 +20,13 @@ class AppServiceProvider extends ServiceProvider
             $notify=dtb_notify::all();
             $view->with('notify',$notify);
         });
+        view()->composer('header',function($view){
+            if(Session('cart')){
+                $oldCart=Session::get('cart');
+                $cart=new cart($oldCart);
+                $view->with(['product_cart'=>$cart->items,'totalPrice'=>$cart->totalPrice,'totalQty'=>$cart->totalQty]);
+            }
+        });
     }
 
     /**
@@ -27,8 +36,5 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if(env('APP_ENV')!=='local'){
-            URL::forceScheme('https');
-        }
     }
 }

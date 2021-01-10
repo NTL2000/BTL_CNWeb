@@ -59,7 +59,8 @@ $(".tab__content").hover(function(){
     $(this).css({"display":"none"});
 });
 // update cart
-$(".btn__card").hover(function () {
+$(".btn__card").hover(function (event) {
+    event.preventDefault();
     var cart_item = document.getElementsByClassName("cart__product")[0];
     var cart_rows = cart_item.getElementsByClassName("cart__product-item");
     var total = 0;
@@ -67,81 +68,15 @@ $(".btn__card").hover(function () {
         var cart_row = cart_rows[i]
         var price_item = cart_row.getElementsByClassName("cart__price")[0]
         var quantity_item = cart_row.getElementsByClassName("cart__quantity")[0]
-        var price = parseFloat(price_item.innerText)
+        var price = parseFloat(price_item.innerText.replace(/,/g, ""))
         var quantity = parseInt(quantity_item.innerText)
         total = total + (price * quantity)
     }
-    document.getElementsByClassName("cart__total-price")[0].innerText = total + 'VNĐ'
-    var count = 0;
-    $(".cart__product-item").each(function () {
-        count += parseInt($(this).find(".cart__quantity").html());
-    });
-    $("#lblCartCount").text(count);
+    document.getElementsByClassName("cart__total-price")[0].innerText = total
+    $('.cart__price').formatCurrency({symbol: ''});
+    $('.cart__total-price').formatCurrency({symbol: ''});
 }
 );
-$(document).ready(function () {
-    var count = 0;
-    $(".cart__product-item").each(function () {
-        count += parseInt($(this).find(".cart__quantity").html());
-    });
-    $("#lblCartCount").text(count);
-});
-//thêm cart
-$(".add__cart").click(function () {
-    var label = 0;
-    var name_click = $.trim($(this).closest(".h-100").find('h6').find('a').text());
-    $(".cart__product-item").each(function () {
-        if ($.trim($(this).find(".content__name").text()) == name_click) {
-            label = 1;
-            $(this).find(".cart__quantity").text((parseInt($(this).find(".cart__quantity").html()) + 1).toString());
-            var count = 0;
-            $(".cart__product-item").each(function () {
-                count += parseInt($(this).find(".cart__quantity").html());
-            });
-            $("#lblCartCount").text(count);
-        }
-    });
-    if (label == 0) {
-        var img = $(this).closest(".h-100").find('img').attr('src');
-        var name = $(this).closest(".h-100").find('h6').find('a').text();
-        var price = $(this).closest(".row").prev().text().replace(/\./g, '');
-        $(".cart__product").append('<div class="cart__product-item"><div class="cart__product-container"><div class="cpi__left"><a href="" class="cpi__left-img"><img src="' + img + '" alt=""></a><div class="cpi__left-content"><span class="content__name">' + name + '</span><span class="content__price"><span class="cart__quantity">1</span>*<span class="cart__price">' + price + '</span></span></div></div><button class="cpi__right"><i class="fas fa-trash-alt"></i></button></div></div>')
-        var count = 0;
-        $(".cart__product-item").each(function () {
-            count += parseInt($(this).find(".cart__quantity").html());
-        });
-        $("#lblCartCount").text(count);
-    }
-});
-// xóa cart
-$(".cpi__right").click(function () {
-    $(this).closest('.cart__product-item').remove();
-});
-//xoá cart mới thêm
-$('.cart__product').on('click', '.cpi__right', function () {
-    $(this).closest('.cart__product-item').remove();
-});
-// menu
-//carousel Laptop bán chạy
-// $(document).ready(function() {
-// $('.owl-carousel').owlCarousel({
-//     stagePadding: 50,
-//     loop:true,
-//     margin:10,
-//     nav:true,
-//     responsive:{
-//         0:{
-//             items:1
-//         },
-//         600:{
-//             items:3
-//         },
-//         1000:{
-//             items:5
-//         }
-//     }
-// })});
-// notify__navbar
 $(".header__navbar-item--has-notify").hover(function () {
     $('.navbar__notify').css({ "display": "block", });
 }, function () {
@@ -168,4 +103,13 @@ $('.user_hiddent').hover(function () {
     $('.user_hiddent').css({ "display": "block", "z-index": "10000" });
 }, function () {
     $('.user_hiddent').css({ "display": "none" });
+});
+//format currency
+$(document).ready(function(){
+    $('.cardGia').formatCurrency({symbol: ''});
+    $('.cartGG').formatCurrency({symbol: ''});
+    $('.GT').find('span').formatCurrency({symbol: ''});
+    $('.GT').next().find('b').formatCurrency({symbol: ''});
+    $('#othanhtien').formatCurrency({symbol: ''});
+    $('.G').find('b').formatCurrency({symbol: ''});
 });

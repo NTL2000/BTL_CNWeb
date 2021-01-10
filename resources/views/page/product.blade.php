@@ -65,10 +65,10 @@
                         <div class="row row__flex">
                             <div class="col-xs-7 col-sm-7 com-md-7 col-lg-7 col-xl-7">
                                 @if($product->promotion_price<$product->unit_price)
-                                    <p class="GT">Giá thường:{{$product->unit_price}}</p>
+                                    <p class="GT">Giá thường:<span>{{$product->unit_price}}</span></p>
                                     <p>Giá khuyến mãi: <b>{{$product->promotion_price}}</b></p>
                                     @else
-                                    <p>Giá: <b>{{$product->promotion_price}}</b></p>
+                                    <p class="G">Giá: <b>{{$product->promotion_price}}</b></p>
                                     @endif
                                 <div class="container">
 
@@ -117,7 +117,7 @@
                                     <div class="row">
 
                                         <div class="col-xs-6 col-sm-6 com-md-6 col-lg-6 col-xl-6">
-                                            <button class="btn btn-danger">
+                                            <button class="btn btn-danger" name="{{$product->id}}">
                                                 <span>ĐẶT MUA NGAY</span>
                                                 <p>Giao hàng nhanh</p>
                                             </button>
@@ -152,31 +152,31 @@
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
-                                            <td> <img class="chinhanh" src="mockup/images/chitietsanpham/box@2x.png" alt="">
+                                            <td> <img class="chinhanh" src="{{asset('mockup/images/chitietsanpham/box@2x.png')}}" alt="">
                                                 <span>Trọn bộ gồm có: sạc</span>
                                             </td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td> <img class="chinhanh" src="mockup/images/chitietsanpham/bao-hanh@2x.png"
+                                            <td> <img class="chinhanh" src="{{asset('mockup/images/chitietsanpham/bao-hanh@2x.png')}}"
                                                     alt="">
                                                 <span>Bảo hành 24 tháng </span>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td><img class="chinhanh" src="mockup/images/chitietsanpham/doi-tra@2x.png"
+                                            <td><img class="chinhanh" src="{{asset('mockup/images/chitietsanpham/doi-tra@2x.png')}}"
                                                     alt="">
                                                 <span>1 đổi 1 trong 15 ngày nếu lỗi do NSX</span>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td><img class="chinhanh" src="mockup/images/chitietsanpham/tel@2x.png" alt="">
+                                            <td><img class="chinhanh" src="{{asset('mockup/images/chitietsanpham/tel@2x.png')}}" alt="">
                                                 <span>Liên hệ CSKH 19008948</span>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td><img class="chinhanh" src="mockup/images/chitietsanpham/email@2x.png" alt="">
+                                            <td><img class="chinhanh" src="{{asset('mockup/images/chitietsanpham/email@2x.png')}}" alt="">
                                                 <span>Email: nguyenlong3172000@gmail.com</span>
                                             </td>
                                         </tr>
@@ -282,4 +282,76 @@
             </div>
 
         </div>
+@endsection
+@section('scripts')
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function (){
+            $.ajaxSetup({
+              headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+            });
+            //load trang
+            var count = 0;
+            $(".cart__product-item").each(function () {
+                count += parseInt($(this).find(".cart__quantity").html());
+            });
+            $("#lblCartCount").text(count);
+            //add cart
+            $('.btn-danger').click(function(){
+                var id=parseInt($(this).attr('name'));
+                $.ajax({
+                url: "{{asset('').'add_cart_post'}}",
+                method: "post",
+                data: {
+                    'id': id,
+                },
+                success: function (data) {
+                    $.ajax({
+                    url: "{{asset('').'add_cart_get'}}",
+                    method: "get",
+                    success: function (data) {
+                        $('.cart__product').html(data);
+                        var count = 0;
+                        $(".cart__product-item").each(function () {
+                            count += parseInt($(this).find(".cart__quantity").html());
+                        });
+                        $("#lblCartCount").text(count);
+                    },
+                    });
+                },
+                });
+            });
+            //remove cart
+            $('.cart__product').on('click', '.cpi__right', function (){
+                var id=parseInt($(this).closest('.cart__product-item').attr('name').trim());
+                var url="{{asset('').'remove_cart/'}}"+id;
+                $.ajax({
+                url: url,
+                method: "get",
+                success: function (data) {
+                    $('.cart__product').html(data);
+                    var cart_item = document.getElementsByClassName("cart__product")[0];
+                    var cart_rows = cart_item.getElementsByClassName("cart__product-item");
+                    var total = 0;
+                    for (var i = 0; i < cart_rows.length; i++) {
+                        var cart_row = cart_rows[i]
+                        var price_item = cart_row.getElementsByClassName("cart__price")[0]
+                        var quantity_item = cart_row.getElementsByClassName("cart__quantity")[0]
+                        var price = parseFloat(price_item.innerText)
+                        var quantity = parseInt(quantity_item.innerText)
+                        total = total + (price * quantity)
+                    }
+                    document.getElementsByClassName("cart__total-price")[0].innerText = total + 'VNĐ'
+                    var count = 0;
+                    $(".cart__product-item").each(function () {
+                        count += parseInt($(this).find(".cart__quantity").html());
+                    });
+                    $("#lblCartCount").text(count);
+
+                },
+                });
+            });
+        });
+    </script>
 @endsection

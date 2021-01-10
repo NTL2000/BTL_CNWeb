@@ -71,11 +71,11 @@
                     </div>
                 </div>
                 <div class="header__container-form">
-                    <form class="form__tag">
+                    <form class="form__tag" action="{{route('tim-kiem')}}">
                         <div class="input-group">
-                            <input type="text" class="form-control"
-                                placeholder="Tên Laptop, hãng sản xuất, cấu hình... ">
-                            <button class="btn btn-warning"><i class="fas fa-search"></i></button>
+                            <input type="text" name="key" class="form-control"
+                                placeholder="Tên Laptop, giá " required>
+                            <button class="btn btn-warning" type="submit"><i class="fas fa-search"></i></button>
 
                         </div>
                     </form>
@@ -91,16 +91,38 @@
                 <div class="header__container-login-card">
                     <div class="btn__card">
                         <button class="bt__card"> <i class="fa fa-shopping-cart"></i><span class='badge badge-warning'
-                                id='lblCartCount'>1</span> Giỏ hàng</button>
+                                id='lblCartCount'>{{Session('cart')->totalQty??0}}</span> Giỏ hàng</button>
                         <div class="cart__hidden">
                             <h4 class="cart__hidden-heading">Sản phẩm mới thêm</h4>
                             <hr>
                             <div class="cart__product">
+                                @if(Session::has('cart'))
+                                    @foreach($product_cart as $product)
+                                    <div class="cart__product-item" name="{{$product['item']['id']}}">
+                                        <div class="cart__product-container">
+                                            <div class="cpi__left">
+                                                <a href="{{route('san-pham',$product['item']['id'])}}" class="cpi__left-img"><img src="{{asset('').'/'.explode('||',$product['item']['image'])[0]}}"
+                                                        alt=""></a>
+                                                <div class="cpi__left-content">
+                                                    <span class="content__name">
+                                                        {{$product['item']['name']}}
+                                                    </span>
+                                                    <span class="content__price">
+                                                        <span class="cart__quantity">{{$product['qty']}}</span>*<span
+                                                            class="cart__price">{{$product['item']['promotion_price']}}</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <button class="cpi__right"><i class="fas fa-trash-alt"></i></button>
+                                        </div>
+                                    </div>
+                                    @endforeach
+                                @endif
                             </div>
                             <hr>
                             <div class="total__price">
                                 Tổng tiển :
-                                <span class="cart__total-price">15990000</span>
+                                <span class="cart__total-price">{{Session('cart')->totalPrice??0}}</span>
                             </div>
                             <div class="btn__checkout">
                                 <button><a href="{{route('gio-hang')}}">Đặt hàng</a></button>

@@ -64,7 +64,7 @@
                                 <tr>
                                     <td>Xác nhận mật khẩu</td>
                                     <td>
-                                        <input type="re_password" onblur="xacnhanMatKhau()" name="re_password"
+                                        <input type="password" onblur="xacnhanMatKhau()" name="re_password"
                                             placeholder=" Nhập lại mật khẩu" class="form-control " id="xacnhanmatkhau">
                                         <span class="ktra" id="er5"></span>
                                     </td>
@@ -93,7 +93,7 @@
 
                                 <tr>
                                     <td>Ngày Sinh</td>
-                                    <td> <input type="date" id="ngaysinh" onblur="kiemTraNgaySinh()" name="birth"
+                                    <td> <input type="date" id="ngaysinh" name="birth"
                                             class="form-control">
                                         <span class="ktra" id="er6"></span>
 
@@ -111,62 +111,8 @@
 
 
                             <button type="submit" class="btn btn-warning btn_submit" data-toggle="modal" data-target=""
-                                id="dangky" onclick="hienThiDuLieu()">
+                                id="dangky">
                                 Tạo tài khoản</button>
-
-                            <!-- The Modal -->
-                            <div class="modal fade" id="myModal">
-
-                                <div class="modal-dialog modal-lg">
-                                    <div class="modal-content">
-
-                                        <!-- Modal Header -->
-                                        <div class="modal-header">
-                                            <h4 class="modal-title">Nội dung đăng ký tài khoản</h4>
-                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        </div>
-
-                                        <!-- Modal body -->
-                                        <div class="modal-body" id="hienthiThongTin">
-                                            <table class="table table-hover">
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Họ tên</td>
-                                                        <td class="modalThongTin"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Số điện thoại</td>
-                                                        <td class="modalThongTin"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Email</td>
-                                                        <td class="modalThongTin"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Mật Khẩu</td>
-                                                        <td class="modalThongTin"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Giới tính</td>
-                                                        <td class="modalThongTin"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Ngày sinh</td>
-                                                        <td class="modalThongTin"></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-
-                                        <!-- Modal footer -->
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-danger"
-                                                data-dismiss="modal">Đóng</button>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
 
                         </form>
                         <br>
@@ -187,4 +133,51 @@
 
 
         </div>
+@endsection
+@section('scripts')
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function (){
+            $.ajaxSetup({
+              headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+            });
+            //load trang
+            var count = 0;
+            $(".cart__product-item").each(function () {
+                count += parseInt($(this).find(".cart__quantity").html());
+            });
+            $("#lblCartCount").text(count);
+            //remove cart
+            $('.cart__product').on('click', '.cpi__right', function (){
+                var id=parseInt($(this).closest('.cart__product-item').attr('name').trim());
+                var url="{{asset('').'remove_cart/'}}"+id;
+                $.ajax({
+                url: url,
+                method: "get",
+                success: function (data) {
+                    $('.cart__product').html(data);
+                    var cart_item = document.getElementsByClassName("cart__product")[0];
+                    var cart_rows = cart_item.getElementsByClassName("cart__product-item");
+                    var total = 0;
+                    for (var i = 0; i < cart_rows.length; i++) {
+                        var cart_row = cart_rows[i]
+                        var price_item = cart_row.getElementsByClassName("cart__price")[0]
+                        var quantity_item = cart_row.getElementsByClassName("cart__quantity")[0]
+                        var price = parseFloat(price_item.innerText)
+                        var quantity = parseInt(quantity_item.innerText)
+                        total = total + (price * quantity)
+                    }
+                    document.getElementsByClassName("cart__total-price")[0].innerText = total + 'VNĐ'
+                    var count = 0;
+                    $(".cart__product-item").each(function () {
+                        count += parseInt($(this).find(".cart__quantity").html());
+                    });
+                    $("#lblCartCount").text(count);
+
+                },
+                });
+            });
+        });
+    </script>
 @endsection

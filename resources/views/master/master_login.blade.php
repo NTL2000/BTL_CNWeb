@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="mockup/font/css/all.css">
     <!-- nhúng css -->
     <link rel="stylesheet" href="mockup/css/main.css">
-    <link rel="stylesheet" href="mockup/css/index.css">
+    <link rel="stylesheet" href="{{asset('css/index.css')}}">
     <link rel="stylesheet" href="mockup/css/login.css">
 </head>
 
@@ -19,10 +19,12 @@
     @include('header')
     @yield('noiDung')
     @include('footer')
+    @yield('scripts')
     <script src="mockup/vendor/jquery/jquery.min.js"></script>
     <script src="mockup/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="mockup/js/main.js"></script>
     <script src="{{asset('mockup/js/signin.js')}}"></script>
+    <script src="{{asset('jquery.formatCurrency-1.4.0/jquery.formatCurrency.js')}}"></script>
 </body>
 
 </html>

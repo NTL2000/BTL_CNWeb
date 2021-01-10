@@ -60,25 +60,6 @@ function xacnhanMatKhau(){
         }
     }
 }
-
-function hienThiDuLieu(){
-  
-    var thongtin = document.forms['formThongTin'];
-    var modalThongTin = document.getElementsByClassName('modalThongTin');
-    if(ktraMatKhau() && ktraSDT() && ktraEmail() && ktraHoTen() ){
-        modalThongTin[0].innerHTML = thongtin.hoten.value;
-        modalThongTin[1].innerHTML = thongtin.sdt.value;
-        modalThongTin[2].innerHTML = thongtin.email.value;
-        modalThongTin[3].innerHTML = thongtin.matkhau.value;
-        modalThongTin[4].innerHTML = thongtin.gioitinh.value;
-        modalThongTin[5].innerHTML = thongtin.ngaysinh.value;
-    }else{
-        alert("Vui lòng điền đầy đủ thông tin đăng ký !");
-        $("#myModal").mouseclick(function () {
-            $('#myModal').modal('hide');
-        });
-    }
-}
 // background img
 $(document).ready(function () {
     $(".container-fluid").css({"background-image": "url(mockup/images/dangky/hinh-nen-Galaxy-Wallpaper-23.jpg)",  "margin-top": "0.7%"})

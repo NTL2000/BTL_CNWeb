@@ -36,3 +36,22 @@ Route::post('record_customer',[PageController::class,'record_Customer'])->name('
 Route::post('login_ht',[PageController::class,'enter_login'])->name('thuc-hien-dang-nhap');
 Route::get('logout_ht',[PageController::class,'log_out'])->name('dang-xuat');
 Route::get("login",[PageController::class,'getLogin'])->name('dang-nhap');
+//cart
+Route::group(['middleware'=>['web']],function(){
+	Route::post('add_cart_post',[PageController::class,'postAddToCart']);
+	Route::get('add_cart_get',[PageController::class,'getAddToCart']);
+	Route::get('remove_cart/{id}',[PageController::class,'delItemCart']);
+	Route::post('increase_cart',[PageController::class,'postAddToCart']);
+	route::get('page_cart_get',[PageController::class,'page_cart_get']);
+	Route::post('reduction_cart',[PageController::class,'reduction_cart']);
+	Route::post('record_cart',[PageController::class,'record_cart'])->name('ghi-gio-hang');
+});
+//search
+Route::get('search',[PageController::class,'search'])->name('tim-kiem');
+//view all ajax
+Route::get('view_all1',[PageController::class,'view_all1']);
+Route::get('re_view_all1',[PageController::class,'re_view_all1']);
+Route::get('view_all2',[PageController::class,'view_all2']);
+Route::get('re_view_all2',[PageController::class,'re_view_all2']);
+Route::get('view_all3',[PageController::class,'view_all3']);
+Route::get('re_view_all3',[PageController::class,'re_view_all3']);

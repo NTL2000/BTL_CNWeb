@@ -132,7 +132,7 @@
                 <div class="col-lg-9 bg-white my-4">
                     <div class="tieudesanpham">
                         <div class="tren">
-                            <p>{{$ty[0]->name}} ({{count($typeProduct)}}+ sản phẩm)</p>
+                            <p>{{$ty}} ({{count($typeProduct)}}+ sản phẩm)</p>
                         </div>
                     </div>
 
@@ -164,7 +164,7 @@
                                     </div>
                                     @endif
                                     <div class="row">
-                                        <button class="add__cart"><span class="add__cart-i"><i
+                                        <button class="add__cart" name={{$sp->id}}><span class="add__cart-i"><i
                                                     class="fa fa-shopping-cart"></i> Thêm vào giỏ</span></button>
                                     </div>
                                     <div class="row">
@@ -241,4 +241,77 @@
             </div>
             <!-- /.row -->
         </div>
+@endsection
+@section('scripts')
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function (){
+            $.ajaxSetup({
+              headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+            });
+            //load trang
+            var count = 0;
+            $(".cart__product-item").each(function () {
+                count += parseInt($(this).find(".cart__quantity").html());
+            });
+            $("#lblCartCount").text(count);
+            //click add
+            $(".add__cart").click(function(){
+                var id=parseInt($(this).attr('name'));
+                $.ajax({
+                url: "{{asset('').'add_cart_post'}}",
+                method: "post",
+                data: {
+                    'id': id,
+                },
+                success: function (data) {
+                    $.ajax({
+                    url: "{{asset('').'add_cart_get'}}",
+                    method: "get",
+                    success: function (data) {
+                        $('.cart__product').html(data);
+                        var count = 0;
+                        $(".cart__product-item").each(function () {
+                            count += parseInt($(this).find(".cart__quantity").html());
+                        });
+                        $("#lblCartCount").text(count);
+                    },
+                    });
+                },
+                });
+                
+            });
+            //remove cart
+            $('.cart__product').on('click', '.cpi__right', function (){
+                var id=parseInt($(this).closest('.cart__product-item').attr('name').trim());
+                var url="{{asset('').'remove_cart/'}}"+id;
+                $.ajax({
+                url: url,
+                method: "get",
+                success: function (data) {
+                    $('.cart__product').html(data);
+                    var cart_item = document.getElementsByClassName("cart__product")[0];
+                    var cart_rows = cart_item.getElementsByClassName("cart__product-item");
+                    var total = 0;
+                    for (var i = 0; i < cart_rows.length; i++) {
+                        var cart_row = cart_rows[i]
+                        var price_item = cart_row.getElementsByClassName("cart__price")[0]
+                        var quantity_item = cart_row.getElementsByClassName("cart__quantity")[0]
+                        var price = parseFloat(price_item.innerText)
+                        var quantity = parseInt(quantity_item.innerText)
+                        total = total + (price * quantity)
+                    }
+                    document.getElementsByClassName("cart__total-price")[0].innerText = total + 'VNĐ'
+                    var count = 0;
+                    $(".cart__product-item").each(function () {
+                        count += parseInt($(this).find(".cart__quantity").html());
+                    });
+                    $("#lblCartCount").text(count);
+
+                },
+                });
+            });
+        });
+    </script>
 @endsection

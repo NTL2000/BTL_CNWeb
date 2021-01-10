@@ -35,7 +35,7 @@
 .cart__product-item{display: flex;justify-content: space-between;margin: auto;height: 100px;}
 .cpi__left{display: flex;width: 340px}
 .cpi__left img{max-width: 100%;}
-.cpi__left-img{width:80px;height:80px;margin-right: 5px;}
+.cpi__left-img{width:80px;height:80px;margin-right: 5px;margin-left: 0px !important;}
 .cpi__left-content{display: block;}
 .cpi__right{height: 50px;width: 30px !important;margin: auto}
 .cpi__right i{margin:0 auto;font-size: 13px;text-align: center;}
