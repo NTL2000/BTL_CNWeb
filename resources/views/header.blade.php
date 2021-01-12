@@ -74,7 +74,7 @@
                     <form class="form__tag" action="{{route('tim-kiem')}}">
                         <div class="input-group">
                             <input type="text" name="key" class="form-control"
-                                placeholder="Tên Laptop, giá " required>
+                                placeholder="Tên Laptop, giá " enctype="multipart/form-data" required>
                             <button class="btn btn-warning" type="submit"><i class="fas fa-search"></i></button>
 
                         </div>

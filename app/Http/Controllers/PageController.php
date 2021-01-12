@@ -189,7 +189,13 @@ class PageController extends Controller
         $oldCart=Session('cart')?Session::get('cart'):null;
         $cart=new cart($oldCart);
         $cart->reduceByOne($r->id);
-        $r->Session()->put('cart',$cart);
+        if(count($cart->items)>0)
+        {
+            $r->Session()->put('cart',$cart);
+        }
+        else{
+            Session::forget('cart');
+        }
     }
     //record cart
     public function record_cart(Request $r){
@@ -220,14 +226,12 @@ class PageController extends Controller
             $dtb_billdetail->promotion_price=$value['price']/$value['qty'];
             $dtb_billdetail->save();
         }
+        $r->Session()->put('checkout','success');
         return redirect()->route('trang-chu');
 
     }
     //search
     public function search(Request $r){
-        // $typeProduct=dtb_product::join('dtb_config','dtb_product.id_configuration', '=','dtb_config.id')->where('dtb_product.id_type','=',$id_type)->get();
-        // $ty=dtb_typeproduct::where('id',$id_type)->get();
-        // return view('page.listProducts',compact('typeProduct','ty'));
         $typeProduct=dtb_product::join('dtb_config','dtb_product.id_configuration', '=','dtb_config.id')->where('name','like','%'.$r->key.'%')->orWhere('promotion_price',$r->key)->get();
         $ty=$r->key;
         return view('page.listProducts',compact('typeProduct','ty'));
@@ -287,5 +291,40 @@ class PageController extends Controller
             echo $p1.$p2.$p3;
         }
     }
+    //admin
+    public function get_login_admin(){
+        return view('admin_page.login');
+    }
+    //category
+    public function category_add_admin(){
+        return view('admin_page.cate_product_add');
+    }
+    public function category_edit_admin(){
+        return view('admin_page.cate_product_edit');
+    }
+    public function category_list_admin(){
+        return view('admin_page.cate_product_list');
+    }
+    //product
+    public function product_add_admin(){
+        return view('admin_page.product_add');
+    }
+    public function product_edit_admin(){
+        return view('admin_page.product_edit');
+    }
+    public function product_list_admin(){
+        return view('admin_page.product_list');
+    }
+    //auth overwrite email
+    // class LoginController extends Controller
+    // {
+    //     use AuthenticatesUsers;
+    //     // ...
+
+    //     public function username()
+    //     {
+    //         return 'username';
+    //     }
+    // }
 
 }

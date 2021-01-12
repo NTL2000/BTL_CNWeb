@@ -16,7 +16,7 @@
                     @endif
                         <br>
 
-                        <form name="formThongTin" action="{{route('ghi_khachhang')}}" method="post">
+                        <form name="formThongTin" action="{{route('ghi_khachhang')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <table class="tabledk">
                                 <tr class="tabledk_tr1">

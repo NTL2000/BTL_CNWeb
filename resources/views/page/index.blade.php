@@ -361,16 +361,21 @@
 
                 </div>
             </div>
-            @if(Session::has('create_acc_access'))
-                <script>
-                    alert("Tạo tài khoản thành công")
-                </script>
-                {{Session::forget('create_acc_access')}}
-            @endif
 @endsection
 @section('scripts')
     <script type="text/javascript">
         document.addEventListener("DOMContentLoaded", function (){
+            //sweet alert 
+            $(document).ready(function(){
+                @if(Session::has('checkout'))
+                    swal("Check out success!", "Bạn đã đặt hàng thành công", "success")
+                    {{Session::forget('checkout')}}
+                @endif
+                @if(Session::has('create_acc_access'))
+                    swal("creat account success!", "Bạn đã tạo tài khoản thành công", "success")
+                    {{Session::forget('create_acc_access')}}
+                @endif
+            });
             $.ajaxSetup({
               headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

@@ -60,7 +60,7 @@
 
                 <!-- Thông tin cá nhân-->
                 <div class="row thongtincanhan">
-                    <form action="{{route('ghi-gio-hang')}}" method="post">
+                    <form action="{{route('ghi-gio-hang')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <table>
                             <tr>
@@ -196,7 +196,6 @@
                 {
                     setTimeout(function () {
                         let url = "{{route('trang-chu')}}";
-                        url = url.replace(':id', id);
                         document.location.href=url;
                     }, 200);
                 }
@@ -262,10 +261,18 @@
                                 $(".cart__product-item").each(function () {
                                     count += parseInt($(this).find(".cart__quantity").html());
                                 });
+                                //fix bug fast reduction
+                                if(count==0)
+                                {
+                                    let url = "{{route('trang-chu')}}";
+                                    document.location.href=url;
+                                }
+                                //end fix
                                 $("#lblCartCount").text(count);
                             },
                             });
                             capNhatTien();
+
                         },
                         });
                     },
@@ -308,7 +315,6 @@
                 {
                     setTimeout(function () {
                         let url = "{{route('trang-chu')}}";
-                        url = url.replace(':id', id);
                         document.location.href=url;
                     }, 200);
                 }

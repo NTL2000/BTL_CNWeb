@@ -55,3 +55,18 @@ Route::get('view_all2',[PageController::class,'view_all2']);
 Route::get('re_view_all2',[PageController::class,'re_view_all2']);
 Route::get('view_all3',[PageController::class,'view_all3']);
 Route::get('re_view_all3',[PageController::class,'re_view_all3']);
+//route admin
+//login_admin
+Route::get('login_admin',[PageController::class,'get_login_admin']);
+Route::group(['prefix'=>'admin'],function(){
+	Route::group(['prefix'=>'category'],function(){
+		Route::get('category_add',[PageController::class,'category_add_admin']);
+		Route::get('category_edit',[PageController::class,'category_edit_admin']);
+		Route::get('category_list',[PageController::class,'category_list_admin']);
+	});
+	Route::group(['prefix'=>'product'],function(){
+		Route::get('product_add',[PageController::class,'product_add_admin']);
+		Route::get('product_edit',[PageController::class,'product_edit_admin']);
+		Route::get('product_list',[PageController::class,'product_list_admin']);
+	});
+});

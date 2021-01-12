@@ -21,7 +21,7 @@
 
                         <p class="float">Thành viên mới? <a href="mockup/signin.html">Đăng ký</a></p>
 
-                        <form action="{{route('thuc-hien-dang-nhap')}}" method="post" class="needs-validation" novalidate>
+                        <form action="{{route('thuc-hien-dang-nhap')}}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
                             @csrf
                             <div class="form-group">
 
