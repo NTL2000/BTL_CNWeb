@@ -296,14 +296,61 @@ class PageController extends Controller
         return view('admin_page.login');
     }
     //category
+    //add
     public function category_add_admin(){
         return view('admin_page.cate_product_add');
     }
-    public function category_edit_admin(){
-        return view('admin_page.cate_product_edit');
+    //exec add
+    public function category_add_admin_exe(Request $r){
+        $typeProduct=new dtb_typeproduct;
+        $typeProduct->name=$r->txtCateName;
+        $typeProduct->description=$r->txtContent;
+        $typeProduct->save();
+        $r->Session()->put('category_add_success','success');
+        return redirect()->route('them-loai-san-pham');
     }
     public function category_list_admin(){
-        return view('admin_page.cate_product_list');
+        $typeProduct=dtb_typeproduct::all();
+        return view('admin_page.cate_product_list',compact('typeProduct'));
+    }
+    //paginate category
+    public function paginate_category_admin($stt){
+        $typeProduct=dtb_typeproduct::all();
+        if(($stt*4)>=count($typeProduct)){
+            $html_table='';
+            for($i=($stt*4)-4;$i<count($typeProduct);$i++){
+                $html_table.='<tr class="odd gradeX" align="center"><td>'.$typeProduct[$i]['id'].'</td><td>'.$typeProduct[$i]['name'].'</td><td>'.$typeProduct[$i]['description'].'</td><td class="center delete" name="'.$typeProduct[$i]['id'].'"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td><td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="'.route('sua-loai-san-pham',$typeProduct[$i]['id']).'">Edit</a></td></tr>';
+            }
+            echo $html_table;
+        }
+        else{
+            $html_table='';
+            for($i=($stt*4)-4;$i<($stt*4);$i++){
+                $html_table.='<tr class="odd gradeX" align="center"><td>'.$typeProduct[$i]['id'].'</td><td>'.$typeProduct[$i]['name'].'</td><td>'.$typeProduct[$i]['description'].'</td><td class="center delete" name="'.$typeProduct[$i]['id'].'"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td><td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="'.route('sua-loai-san-pham',$typeProduct[$i]['id']).'">Edit</a></td></tr>';
+            }
+            echo $html_table;
+        }
+    }
+    public function category_delete_admin_exe($id){
+        $res=dtb_typeproduct::where('id',$id)->delete();
+        $typeProduct=dtb_typeproduct::all();
+        for($i=0;$i<4;$i++) {
+            echo '<tr class="odd gradeX" align="center"><td>'.$typeProduct[$i]['id'].'</td><td>'.$typeProduct[$i]['name'].'</td><td>'.$typeProduct[$i]['description'].'</td><td class="center delete" name="'.$typeProduct[$i]['id'].'"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td><td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="'.route('sua-loai-san-pham',$typeProduct[$i]['id']).'">Edit</a></td></tr>';
+        }
+    }
+    //edit
+    public function category_edit_admin($id_typeProduct){
+        $typeProduct=dtb_typeproduct::where('id',$id_typeProduct)->first();
+        return view('admin_page.cate_product_edit',compact('typeProduct'));
+    }
+    //edit_exe
+    public function category_edit_admin_exe(Request $r){
+        $type = dtb_typeproduct::where('id',$r->txtCate_id)->first();
+        $type->name = $r->txtCateName;
+        $type->description = $r->txtContent;
+        $type->save();
+        $r->Session()->put('category_edit_success','success');
+        return redirect()->route('danh-sach-loai-san-pham');
     }
     //product
     public function product_add_admin(){
@@ -314,6 +361,75 @@ class PageController extends Controller
     }
     public function product_list_admin(){
         return view('admin_page.product_list');
+    }
+    //config
+    public function config_add(){
+        return view('admin_page.config_add');
+    }
+    public function config_add_exe(Request $r){
+        $config=new dtb_config;
+        $config->cpu=$r->cpu;
+        $config->ram=$r->ram;
+        $config->hard_disk=$r->hard_disk;
+        $config->cart_graphic=$r->card;
+        $config->display=$r->monitor;
+        $config->connect=$r->connect;
+        $config->pin=$r->pin;
+        $config->weight=$r->weight;
+        $config->size=$r->size;
+        $config->save();
+        $r->Session()->put('config_add_success','success');
+        return redirect()->route('them-cau-hinh');
+    }
+    public function config_list(){
+        $config=dtb_config::all();
+        return view('admin_page.config_list',compact('config'));
+    }
+    //paginate config
+    public function paginate_config_admin($stt){
+        $config=dtb_config::all();
+        if(($stt*4)>=count($config)){
+            $html_table='';
+            for($i=($stt*4)-4;$i<count($config);$i++){
+                $html_table.='<tr class="odd gradeX" align="center"><td>'.$config[$i]['id'].'</td><td>'.$config[$i]['cpu'].'</td><td>'.$config[$i]['ram'].'</td><td>'.$config[$i]['hard_disk'].'</td><td>'.$config[$i]['cart_graphic'].'</td><td>'.$config[$i]['display'].'</td><td>'.$config[$i]['connect'].'</td><td>'.$config[$i]['pin'].'</td><td>'.$config[$i]['weight'].'</td><td>'.$config[$i]['size'].'</td><td class="center delete" name="'.$config[$i]['id'].'"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td><td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="'.route('sua-cau-hinh',$config[$i]['id']).'">Edit</a></td></tr>';
+            }
+            echo $html_table;
+        }
+        else{
+            $html_table='';
+            for($i=($stt*4)-4;$i<($stt*4);$i++){
+                $html_table.='<tr class="odd gradeX" align="center"><td>'.$config[$i]['id'].'</td><td>'.$config[$i]['cpu'].'</td><td>'.$config[$i]['ram'].'</td><td>'.$config[$i]['hard_disk'].'</td><td>'.$config[$i]['cart_graphic'].'</td><td>'.$config[$i]['display'].'</td><td>'.$config[$i]['connect'].'</td><td>'.$config[$i]['pin'].'</td><td>'.$config[$i]['weight'].'</td><td>'.$config[$i]['size'].'</td><td class="center delete" name="'.$config[$i]['id'].'"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td><td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="'.route('sua-cau-hinh',$config[$i]['id']).'">Edit</a></td></tr>';
+            }
+            echo $html_table;
+        }
+    }
+    //edit
+    public function edit_config($id_config){
+        $config=dtb_config::where('id',$id_config)->first();
+        return view('admin_page.config_edit',compact('config'));
+    }
+    //edit_exe
+    public function config_edit_admin_exe(Request $r){
+        $config = dtb_config::where('id',$r->id)->first();
+        $config->cpu=$r->cpu;
+        $config->ram=$r->ram;
+        $config->hard_disk=$r->hard_disk;
+        $config->cart_graphic=$r->card;
+        $config->display=$r->monitor;
+        $config->connect=$r->connect;
+        $config->pin=$r->pin;
+        $config->weight=$r->weight;
+        $config->size=$r->size;
+        $config->save();
+        $r->Session()->put('config_edit_success','success');
+        return redirect()->route('danh-sach-cau-hinh');
+    }
+    public function config_delete_admin_exe($id){
+        $res=dtb_config::where('id',$id)->delete();
+        $config=dtb_config::all();
+        for($i=0;$i<4;$i++) {
+            echo '<tr class="odd gradeX" align="center"><td>'.$config[$i]['id'].'</td><td>'.$config[$i]['cpu'].'</td><td>'.$config[$i]['ram'].'</td><td>'.$config[$i]['hard_disk'].'</td><td>'.$config[$i]['cart_graphic'].'</td><td>'.$config[$i]['display'].'</td><td>'.$config[$i]['connect'].'</td><td>'.$config[$i]['pin'].'</td><td>'.$config[$i]['weight'].'</td><td>'.$config[$i]['size'].'</td><td class="center delete" name="'.$config[$i]['id'].'"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td><td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="'.route('sua-cau-hinh',$config[$i]['id']).'">Edit</a></td></tr>';
+        }
     }
     //auth overwrite email
     // class LoginController extends Controller

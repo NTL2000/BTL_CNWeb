@@ -4,7 +4,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Loại sản phẩm 
+                        <h1 class="page-header">Cấu hình
                             <small>Danh sách</small>
                         </h1>
                     </div>
@@ -13,8 +13,15 @@
                         <thead>
                             <tr align="center">
                                 <th>ID</th>
-                                <th>Name</th>
-                                <th>Description</th>
+                                <th>Cpu</th>
+                                <th>Ram</th>
+                                <th>Ổ cứng</th>
+                                <th>Card đồ hoạ</th>
+                                <th>Màn hình</th>
+                                <th>Kết nối</th>
+                                <th>Pin</th>
+                                <th>Cân nặng</th>
+                                <th>Kích thước</th>
                                 <th>Delete</th>
                                 <th>Edit</th>
                             </tr>
@@ -22,22 +29,29 @@
                         <tbody class="body_table">
                             @for($i=0;$i<4;$i++)
                             <tr class="odd gradeX" align="center">
-                                <td>{{$typeProduct[$i]['id']}}</td>
-                                <td>{{$typeProduct[$i]['name']}}</td>
-                                <td>{{$typeProduct[$i]['description']}}</td>                                
-                                <td class="center delete" name="{{$typeProduct[$i]['id']}}"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td>
-                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{{route('sua-loai-san-pham',$typeProduct[$i]['id'])}}">Edit</a></td>
+                                <td>{{$config[$i]['id']}}</td>
+                                <td>{{$config[$i]['cpu']}}</td>
+                                <td>{{$config[$i]['ram']}}</td>
+                                <td>{{$config[$i]['hard_disk']}}</td>
+                                <td>{{$config[$i]['cart_graphic']}}</td>
+                                <td>{{$config[$i]['display']}}</td>
+                                <td>{{$config[$i]['connect']}}</td>
+                                <td>{{$config[$i]['pin']}}</td>
+                                <td>{{$config[$i]['weight']}}</td>
+                                <td>{{$config[$i]['size']}}</td>                                
+                                <td class="center delete" name="{{$config[$i]['id']}}"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td>
+                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{{route('sua-cau-hinh',$config[$i]['id'])}}">Edit</a></td>
                             </tr>
                             @endfor
                             <nav aria-label="Page navigation example">
                               <ul class="pagination">
                                 <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                @if($typeProduct->count()%4!=0)
-                                    @for($i=0;$i<$typeProduct->count()/4;$i++)
+                                @if($config->count()%4!=0)
+                                    @for($i=0;$i<$config->count()/4;$i++)
                                     <li class="page-item png" name="{{$i+1}}"><a class="page-link" href="#">{{$i+1}}</a></li>
                                     @endfor
                                 @else
-                                    @for($i=1;$i<=$typeProduct->count()/4;$i++)
+                                    @for($i=1;$i<=$config->count()/4;$i++)
                                     <li class="page-item png" name="{{$i}}"><a class="page-link" href="#">{{$i}}</a></li>
                                     @endfor
                                 @endif
@@ -68,30 +82,21 @@
             $('.png').click(function(){
                 var stt=parseInt($(this).attr('name').trim());
                 $.ajax({
-                url: "paginate_category_admin/"+stt,
+                url: "paginate_config_admin/"+stt,
                 method: "get",
                 success: function (data) {
                     $('.body_table').html(data);
                 },
                 });
             });
+            //delete
             $('table').on('click','.delete',function(){
                 var id=parseInt($(this).attr('name').trim());
                 $.ajax({
-                url: "category_delete_exe/"+id,
+                url: "config_delete_exe/"+id,
                 method: "get",
                 success: function (data) {
                     $('.body_table').html(data);
-                    //re_value_typeProduct
-                    // $.ajax({
-                    // url: "category_delete_exe/"+id,
-                    // method: "get",
-                    // success: function (data) {
-                    //     $('.body_table').html(data);
-                    //     //re_value_typeProduct
-                        
-                    // },
-                    // });
                 },
                 });
             });

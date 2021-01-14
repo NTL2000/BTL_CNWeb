@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Khóa Học Lập Trình Laravel Framework 5.x Tại Khoa Phạm">
     <meta name="author" content="">
-    <title>Admin - Khoa Phạm</title>
+    <title>Admin-area</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('admin/bower_components/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -25,11 +25,14 @@
 
     <!-- DataTables Responsive CSS -->
     <link href="{{asset('admin/bower_components/datatables-responsive/css/dataTables.responsive.css')}}" rel="stylesheet">
+    <!-- icon -->
+    <link rel="stylesheet" href="{{asset('mockup/font/css/all.css')}}">
 </head>
 
 <body>
     @include('menu_admin')
     @yield('noiDung')
+    @yield('scripts')
     <!-- /#wrapper -->
 
     <!-- jQuery -->
@@ -49,11 +52,30 @@
     <script src="{{asset('admin/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js')}}"></script>
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+    <!-- sweet-alert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript" language="javascript" src="{{asset('admin/ckeditor/ckeditor.js')}}" ></script>
     <script>
     $(document).ready(function() {
         $('#dataTables-example').DataTable({
                 responsive: true
         });
+        @if(Session::has('category_add_success'))
+            swal("Add category success!", "Bạn đã thêm loại sản phẩm thành công", "success")
+            {{Session::forget('category_add_success')}}
+        @endif
+        @if(Session::has('category_edit_success'))
+            swal("edit category success!", "Bạn đã sửa loại sản phẩm thành công", "success")
+            {{Session::forget('category_edit_success')}}
+        @endif
+        @if(Session::has('config_add_success'))
+            swal("add config success!", "Bạn đã thêm cấu hình thành công", "success")
+            {{Session::forget('config_add_success')}}
+        @endif
+        @if(Session::has('config_edit_success'))
+            swal("edit config success!", "Bạn đã sửa cấu hình thành công", "success")
+            {{Session::forget('config_edit_success')}}
+        @endif
     });
     </script>
 </body>

@@ -58,15 +58,30 @@ Route::get('re_view_all3',[PageController::class,'re_view_all3']);
 //route admin
 //login_admin
 Route::get('login_admin',[PageController::class,'get_login_admin']);
+//admin page
 Route::group(['prefix'=>'admin'],function(){
 	Route::group(['prefix'=>'category'],function(){
-		Route::get('category_add',[PageController::class,'category_add_admin']);
-		Route::get('category_edit',[PageController::class,'category_edit_admin']);
-		Route::get('category_list',[PageController::class,'category_list_admin']);
+		Route::get('category_add',[PageController::class,'category_add_admin'])->name('them-loai-san-pham');
+		Route::post('category_add_exe',[PageController::class,'category_add_admin_exe'])->name('them-loai-san-pham_exe');
+		Route::get('category_delete_exe/{id}',[PageController::class,'category_delete_admin_exe']);
+		Route::get('category_edit/{id_typeProduct}',[PageController::class,'category_edit_admin'])->name('sua-loai-san-pham');
+		Route::post('category_edit_exe',[PageController::class,'category_edit_admin_exe'])->name('sua-loai-san-pham_exe');
+		Route::get('category_list',[PageController::class,'category_list_admin'])->name('danh-sach-loai-san-pham');
+		route::get('paginate_category_admin/{stt}',[PageController::class,'paginate_category_admin']);
 	});
 	Route::group(['prefix'=>'product'],function(){
-		Route::get('product_add',[PageController::class,'product_add_admin']);
+		Route::get('product_add',[PageController::class,'product_add_admin'])->name('them-san-pham');
 		Route::get('product_edit',[PageController::class,'product_edit_admin']);
 		Route::get('product_list',[PageController::class,'product_list_admin']);
+	});
+	Route::group(['prefix'=>'config'],function(){
+		Route::get('config_add',[PageController::class,'config_add'])->name('them-cau-hinh');
+		Route::post('config_add_exe',[PageController::class,'config_add_exe'])->name('them-cau-hinh_exe');
+		Route::get('config_list',[PageController::class,'config_list'])->name('danh-sach-cau-hinh');
+		route::get('paginate_config_admin/{stt}',[PageController::class,'paginate_config_admin']);
+		Route::get('edit_config/{id_config}',[PageController::class,'edit_config'])->name('sua-cau-hinh');
+		Route::post('config_edit_exe',[PageController::class,'config_edit_admin_exe'])->name('sua-cau-hinh_exe');
+		Route::get('config_delete_exe/{id}',[PageController::class,'config_delete_admin_exe']);
+
 	});
 });

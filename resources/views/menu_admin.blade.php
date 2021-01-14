@@ -7,7 +7,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Admin Area - Khoa Phạm</a>
+                <a class="navbar-brand" href="index.html">Admin Area</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -47,44 +47,112 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="#"><i class="fas fa-chart-bar"></i></i> Tổng quan</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Category<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-list-alt" aria-hidden="true"></i>Loại sản phẩm<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">List Category</a>
+                                    <a href="{{route('danh-sach-loai-san-pham')}}">danh sách</a>
                                 </li>
                                 <li>
-                                    <a href="#">Add Category</a>
+                                    <a href="{{route('them-loai-san-pham')}}">thêm</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-cube fa-fw"></i> Product<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-cube fa-fw"></i>sản phẩm<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">List Product</a>
+                                    <a href="#">danh sách</a>
                                 </li>
                                 <li>
-                                    <a href="#">Add Product</a>
+                                    <a href="{{route('them-san-pham')}}">thêm</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-users fa-fw"></i> User<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-cube fa-fw"></i>Cấu hình<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">List User</a>
+                                    <a href="{{route('danh-sach-cau-hinh')}}">danh sách</a>
                                 </li>
                                 <li>
-                                    <a href="#">Add User</a>
+                                    <a href="{{route('them-cau-hinh')}}">thêm</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                        <li>
+                            <a href="#"><i class="fas fa-user"></i> Quản trị viên<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">danh sách</a>
+                                </li>
+                                <li>
+                                    <a href="#">thêm</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <!-- start customer -->
+                        <li>
+                            <a href="#"><i class="fa fa-users fa-fw"></i> khách hàng<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">danh sách</a>
+                                </li>
+                                <li>
+                                    <a href="#">thêm</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <!-- end customer -->
+                        <!-- start bill -->
+                        <li>
+                            <a href="#"><i class="fas fa-money-bill-alt"></i> hoá đơn<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">danh sách</a>
+                                </li>
+                                <li>
+                                    <a href="#">thêm</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <!-- end bill -->
+                        <!-- start notification -->
+                        <li>
+                            <a href="#"><i class="fas fa-bell"></i> thông báo<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">danh sách</a>
+                                </li>
+                                <li>
+                                    <a href="#">thêm</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <!-- end notification -->
+                        <!-- start slider -->
+                        <li>
+                            <a href="#"><i class="fas fa-image"></i> slider<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">danh sách</a>
+                                </li>
+                                <li>
+                                    <a href="#">thêm</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <!-- end slider -->
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
