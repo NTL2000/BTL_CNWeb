@@ -65,7 +65,7 @@
                             <a href="#"><i class="fa fa-cube fa-fw"></i>sản phẩm<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">danh sách</a>
+                                    <a href="{{route('danh-sach-san-pham')}}">danh sách</a>
                                 </li>
                                 <li>
                                     <a href="{{route('them-san-pham')}}">thêm</a>

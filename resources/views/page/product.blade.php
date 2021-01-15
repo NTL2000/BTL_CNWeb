@@ -16,22 +16,22 @@
                             </ul>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="{{asset('').'/'.explode('||',$product->image)[0]}}" alt="$product->name">
+                                    <img src="{{asset('').'/'.explode('||',$product->image)[0]}}" alt="{{$product->name}}">
                                     <div class="carousel-caption">
                                     </div>
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="{{asset('').'/'.explode('||',$product->image)[1]}}" alt="$product->name">
+                                    <img src="{{asset('').'/'.explode('||',$product->image)[1]}}" alt="{{$product->name}}">
                                     <div class="carousel-caption">
                                     </div>
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="{{asset('').'/'.explode('||',$product->image)[2]}}" alt="$product->name">
+                                    <img src="{{asset('').'/'.explode('||',$product->image)[2]}}" alt="{{$product->name}}">
                                     <div class="carousel-caption">
                                     </div>
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="{{asset('').'/'.explode('||',$product->image)[3]}}" alt="$product->name">
+                                    <img src="{{asset('').'/'.explode('||',$product->image)[3]}}" alt="{{$product->name}}">
                                     <div class="carousel-caption">
                                     </div>
                                 </div>
@@ -233,7 +233,7 @@
             <div class="row my-3 bg-white review">
                 <div class="col-xs-8 col-sm-8 com-md-8 col-lg-8 col-xl-8">
                     <br>
-                    {{$product->description}}
+                    <?php echo $product->description; ?>
                 </div>
                 <div class="col-xs-4 col-sm-4 com-md-4 col-lg-4 col-xl-4 bg-light">
                     <div class="bg-white">

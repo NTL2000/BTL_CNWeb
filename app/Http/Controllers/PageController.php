@@ -12,9 +12,11 @@ use App\Models\cart;
 use App\Models\dtb_bills;
 use App\Models\dtb_billdetail;
 use Illuminate\Support\Facades\File; 
+use Illuminate\Filesystem\Filesystem;
 use Hash;
 use Illuminate\Support\Facades\Auth;
 use Session;
+use Storage;
 
 class PageController extends Controller
 {
@@ -36,11 +38,11 @@ class PageController extends Controller
             $count++;
         }
         //sp khuyến mãi
-        $saleProduct=dtb_product::join('dtb_config','dtb_product.id_configuration', '=','dtb_config.id')->wherecolumn('dtb_product.promotion_price','<','dtb_product.unit_price')->paginate(4);
+        $saleProduct=dtb_config::join('dtb_product','dtb_product.id_configuration', '=','dtb_config.id')->wherecolumn('dtb_product.promotion_price','<','dtb_product.unit_price')->paginate(4);
         //sp trên top
-        $productTop=dtb_product::join('dtb_config','dtb_product.id_configuration', '=','dtb_config.id')->where('top',1)->paginate(4);
+        $productTop=dtb_config::join('dtb_product','dtb_product.id_configuration', '=','dtb_config.id')->where('top',1)->paginate(4);
         //sp phổ biến
-        $productPopolar=dtb_product::join('dtb_config','dtb_product.id_configuration', '=','dtb_config.id')->where('popular',1)->paginate(4);
+        $productPopolar=dtb_config::join('dtb_product','dtb_product.id_configuration', '=','dtb_config.id')->where('popular',1)->paginate(4);
         return view('page.index',compact('carousel_active','carousel','banner','separate_l1','separate_l2','img_foot','typeProduct','producwithtype','saleProduct','productTop','productPopolar'));
     }
     public function getCart(){
@@ -54,13 +56,13 @@ class PageController extends Controller
         }
     }
     public function getlistProduct($id_type){
-        $typeProduct=dtb_product::join('dtb_config','dtb_product.id_configuration', '=','dtb_config.id')->where('dtb_product.id_type','=',$id_type)->get();
+        $typeProduct=dtb_config::join('dtb_product','dtb_product.id_configuration', '=','dtb_config.id')->where('dtb_product.id_type','=',$id_type)->get();
         $t=dtb_typeproduct::where('id',$id_type)->get();
         $ty=$t[0]->name;
         return view('page.listProducts',compact('typeProduct','ty'));
     }
     public function getProduct($id_product){
-        $product=dtb_product::join('dtb_config','dtb_product.id_configuration', '=','dtb_config.id')->where('dtb_product.id','=',$id_product)->first();
+        $product=dtb_config::join('dtb_product','dtb_product.id_configuration', '=','dtb_config.id')->where('dtb_product.id','=',$id_product)->first();
         $type=dtb_typeproduct::where('id',$product->id_type)->first();
         return view('page.product',compact('product','type'));
     }
@@ -135,7 +137,7 @@ class PageController extends Controller
     }
     //giỏ hàng
     public function postAddToCart(Request $r){
-        $product=dtb_product::join('dtb_config','dtb_product.id_configuration', '=','dtb_config.id')->where('dtb_product.id','=',$r->id)->first();
+        $product=dtb_config::join('dtb_product','dtb_product.id_configuration', '=','dtb_config.id')->where('dtb_product.id','=',$r->id)->first();
         $oldCart=Session('cart')?Session::get('cart'):null;
         $cart=new cart($oldCart);
         $cart->add($product,$r->id);
@@ -162,7 +164,7 @@ class PageController extends Controller
             Session::put('cart',$cart);
             $product_cart = $cart->items;
             foreach ($product_cart as $product) {
-                echo '<div class="cart__product-item" name="'.$product["item"]["id"].'"><div class="cart__product-container"><div class="cpi__left"><a href="{{route("san-pham",'.')}}" class="cpi__left-img"><img src="'.asset('').'/'.explode('||',$product['item']['image'])[0].'" alt=""></a><div class="cpi__left-content"><span class="content__name">' . $product["item"]["name"] . '</span><span class="content__price"><span class="cart__quantity">'.$product["qty"].'</span>*<span class="cart__price">'.$product["item"]["promotion_price"].'</span></span></div></div><button class="cpi__right"><i class="fas fa-trash-alt"></i></button></div></div>';
+                echo '<div class="cart__product-item" name="'.$product["item"]["id"].'"><div class="cart__product-container"><div class="cpi__left"><a href="'.route("san-pham",$product["item"]["id"]).'" class="cpi__left-img"><img src="'.asset('').'/'.explode('||',$product['item']['image'])[0].'" alt=""></a><div class="cpi__left-content"><span class="content__name">' . $product["item"]["name"] . '</span><span class="content__price"><span class="cart__quantity">'.$product["qty"].'</span>*<span class="cart__price">'.$product["item"]["promotion_price"].'</span></span></div></div><button class="cpi__right"><i class="fas fa-trash-alt"></i></button></div></div>';
             }
         }
         else{
@@ -232,13 +234,13 @@ class PageController extends Controller
     }
     //search
     public function search(Request $r){
-        $typeProduct=dtb_product::join('dtb_config','dtb_product.id_configuration', '=','dtb_config.id')->where('name','like','%'.$r->key.'%')->orWhere('promotion_price',$r->key)->get();
+        $typeProduct=dtb_config::join('dtb_product','dtb_product.id_configuration', '=','dtb_config.id')->where('name','like','%'.$r->key.'%')->orWhere('promotion_price',$r->key)->get();
         $ty=$r->key;
         return view('page.listProducts',compact('typeProduct','ty'));
     }
     //view all
     public function view_all1(){
-        $productTop=dtb_product::join('dtb_config','dtb_product.id_configuration', '=','dtb_config.id')->where('top',1)->get();
+        $productTop=dtb_config::join('dtb_product','dtb_product.id_configuration', '=','dtb_config.id')->where('top',1)->get();
         foreach ($productTop as $product) {
             $p1='<div class="col-lg-3 col-md-6 mb-3"><div class="card h-100"><a href="'.route('san-pham',$product->id).'"><img class="card-img-top" src="'.explode('||',$product->image)[0].'"alt=""></a><div class="card-body  "><h6 class="card-title"><a href="'.route('san-pham',$product->id).'">'.$product->name.'</a></h6>';
             $p2=($product->promotion_price<$product->unit_price)?'<div class="cartGG">'.$product->unit_price.'</div><div class="cardGia">'.$product->promotion_price.'</div>':'<div class="cardGia">'.$product->promotion_price.'</div>';
@@ -247,7 +249,7 @@ class PageController extends Controller
         }
     }
     public function re_view_all1(){
-        $productTop=dtb_product::join('dtb_config','dtb_product.id_configuration', '=','dtb_config.id')->where('top',1)->paginate(4);
+        $productTop=dtb_config::join('dtb_product','dtb_product.id_configuration', '=','dtb_config.id')->where('top',1)->paginate(4);
         foreach ($productTop as $product) {
             $p1='<div class="col-lg-3 col-md-6 mb-3"><div class="card h-100"><a href="'.route('san-pham',$product->id).'"><img class="card-img-top" src="'.explode('||',$product->image)[0].'"alt=""></a><div class="card-body  "><h6 class="card-title"><a href="'.route('san-pham',$product->id).'">'.$product->name.'</a></h6>';
             $p2=($product->promotion_price<$product->unit_price)?'<div class="cartGG">'.$product->unit_price.'</div><div class="cardGia">'.$product->promotion_price.'</div>':'<div class="cardGia">'.$product->promotion_price.'</div>';
@@ -256,7 +258,7 @@ class PageController extends Controller
         }
     }
     public function view_all2(){
-        $productTop=dtb_product::join('dtb_config','dtb_product.id_configuration', '=','dtb_config.id')->wherecolumn('dtb_product.promotion_price','<','dtb_product.unit_price')->get();
+        $productTop=dtb_config::join('dtb_product','dtb_product.id_configuration', '=','dtb_config.id')->wherecolumn('dtb_product.promotion_price','<','dtb_product.unit_price')->get();
         foreach ($productTop as $product) {
             $p1='<div class="col-lg-3 col-md-6 mb-3"><div class="card h-100"><a href="'.route('san-pham',$product->id).'"><img class="card-img-top" src="'.explode('||',$product->image)[0].'"alt=""></a><div class="card-body  "><h6 class="card-title"><a href="'.route('san-pham',$product->id).'">'.$product->name.'</a></h6>';
             $p2=($product->promotion_price<$product->unit_price)?'<div class="cartGG">'.$product->unit_price.'</div><div class="cardGia">'.$product->promotion_price.'</div>':'<div class="cardGia">'.$product->promotion_price.'</div>';
@@ -265,7 +267,7 @@ class PageController extends Controller
         }
     }
     public function re_view_all2(){
-        $productTop=dtb_product::join('dtb_config','dtb_product.id_configuration', '=','dtb_config.id')->wherecolumn('dtb_product.promotion_price','<','dtb_product.unit_price')->paginate(4);
+        $productTop=dtb_config::join('dtb_product','dtb_product.id_configuration', '=','dtb_config.id')->wherecolumn('dtb_product.promotion_price','<','dtb_product.unit_price')->paginate(4);
         foreach ($productTop as $product) {
             $p1='<div class="col-lg-3 col-md-6 mb-3"><div class="card h-100"><a href="'.route('san-pham',$product->id).'"><img class="card-img-top" src="'.explode('||',$product->image)[0].'"alt=""></a><div class="card-body  "><h6 class="card-title"><a href="'.route('san-pham',$product->id).'">'.$product->name.'</a></h6>';
             $p2=($product->promotion_price<$product->unit_price)?'<div class="cartGG">'.$product->unit_price.'</div><div class="cardGia">'.$product->promotion_price.'</div>':'<div class="cardGia">'.$product->promotion_price.'</div>';
@@ -274,7 +276,7 @@ class PageController extends Controller
         }
     }
     public function view_all3(){
-        $productTop=dtb_product::join('dtb_config','dtb_product.id_configuration', '=','dtb_config.id')->where('popular',1)->get();
+        $productTop=dtb_config::join('dtb_product','dtb_product.id_configuration', '=','dtb_config.id')->where('popular',1)->get();
         foreach ($productTop as $product) {
             $p1='<div class="col-lg-3 col-md-6 mb-3"><div class="card h-100"><a href="'.route('san-pham',$product->id).'"><img class="card-img-top" src="'.explode('||',$product->image)[0].'"alt=""></a><div class="card-body  "><h6 class="card-title"><a href="'.route('san-pham',$product->id).'">'.$product->name.'</a></h6>';
             $p2=($product->promotion_price<$product->unit_price)?'<div class="cartGG">'.$product->unit_price.'</div><div class="cardGia">'.$product->promotion_price.'</div>':'<div class="cardGia">'.$product->promotion_price.'</div>';
@@ -283,7 +285,7 @@ class PageController extends Controller
         }
     }
     public function re_view_all3(){
-        $productTop=dtb_product::join('dtb_config','dtb_product.id_configuration', '=','dtb_config.id')->where('popular',1)->paginate(4);
+        $productTop=dtb_config::join('dtb_product','dtb_product.id_configuration', '=','dtb_config.id')->where('popular',1)->paginate(4);
         foreach ($productTop as $product) {
             $p1='<div class="col-lg-3 col-md-6 mb-3"><div class="card h-100"><a href="'.route('san-pham',$product->id).'"><img class="card-img-top" src="'.explode('||',$product->image)[0].'"alt=""></a><div class="card-body  "><h6 class="card-title"><a href="'.route('san-pham',$product->id).'">'.$product->name.'</a></h6>';
             $p2=($product->promotion_price<$product->unit_price)?'<div class="cartGG">'.$product->unit_price.'</div><div class="cardGia">'.$product->promotion_price.'</div>':'<div class="cardGia">'.$product->promotion_price.'</div>';
@@ -302,6 +304,8 @@ class PageController extends Controller
     }
     //exec add
     public function category_add_admin_exe(Request $r){
+        $path="mockup/images/chitietsanpham/".$r->txtCateName;
+        File::makeDirectory($path);
         $typeProduct=new dtb_typeproduct;
         $typeProduct->name=$r->txtCateName;
         $typeProduct->description=$r->txtContent;
@@ -331,7 +335,17 @@ class PageController extends Controller
             echo $html_table;
         }
     }
+    //view all category
+    public function view_all_category_exe(){
+        $typeProduct=dtb_typeproduct::all();
+        foreach ($typeProduct as $type) {
+            echo '<tr class="odd gradeX" align="center"><td>'.$type['id'].'</td><td>'.$type['name'].'</td><td>'.$type['description'].'</td><td class="center delete" name="'.$type['id'].'"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td><td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="'.route('sua-loai-san-pham',$type['id']).'">Edit</a></td></tr>';
+        }
+    }
     public function category_delete_admin_exe($id){
+        $t=dtb_typeproduct::where('id',$id)->first();
+        $path="mockup/images/chitietsanpham/".$t->name;
+        File::deleteDirectory(public_path($path));
         $res=dtb_typeproduct::where('id',$id)->delete();
         $typeProduct=dtb_typeproduct::all();
         for($i=0;$i<4;$i++) {
@@ -345,6 +359,16 @@ class PageController extends Controller
     }
     //edit_exe
     public function category_edit_admin_exe(Request $r){
+        // $typeProduct=dtb_typeproduct::where('id',$r->txtCate_id)->first();
+        // $path='mockup/images/chitietsanpham/'.$r->txtCateName;
+        // $old_path='mockup/images/chitietsanpham/'.$typeProduct['name'];
+        // rename($old_path,$path);
+        // $products=dtb_product::where('id_type',$r->txtCate_id)->get();
+        // for($i =0;$i<count($products);$i++){
+        //     $products[$i]->image=str_replace($typeProduct->name, $r->txtCateName, $products[$i]->image);
+        //     $products[$i]->save();
+        // }
+
         $type = dtb_typeproduct::where('id',$r->txtCate_id)->first();
         $type->name = $r->txtCateName;
         $type->description = $r->txtContent;
@@ -356,12 +380,191 @@ class PageController extends Controller
     public function product_add_admin(){
         return view('admin_page.product_add');
     }
-    public function product_edit_admin(){
-        return view('admin_page.product_edit');
+    public function product_edit_admin($id_product){
+        $product=dtb_product::where('id',$id_product)->first();
+        $config=dtb_config::where('id','!=',$product->id_configuration)->get();
+        $typeProduct=dtb_typeproduct::where('id','!=',$product->id_type)->get();
+        $config_current=dtb_config::where('id',$product->id_configuration)->first();
+        $typeProduct_current=dtb_typeproduct::where('id',$product->id_type)->first();
+        return view('admin_page.product_edit',compact('config','typeProduct','product','config_current','typeProduct_current'));
     }
     public function product_list_admin(){
-        return view('admin_page.product_list');
+        $product=dtb_product::all();
+        return view('admin_page.product_list',compact('product'));
     }
+    public function product_add_admin_exe(Request $r){
+        //lưu ảnh
+        $typeProduct=dtb_typeproduct::where('id',$r->id_type)->first();
+        $path="mockup/images/chitietsanpham/".$typeProduct['name']."/".$r->name;
+        $link_img='';
+        File::makeDirectory($path);
+        if($r->hasFile('img1')){
+            $img1=$r->file('img1');
+            $img1->move($path,'a1.jpg');
+            $link_img.=$path.'/a1.jpg||';
+        }
+        else{
+            $img1='';
+        }
+        if($r->hasFile('img2')){
+            $img1=$r->file('img2');
+            $img1->move($path,'a2.jpg');
+            $link_img.=$path.'/a2.jpg||';
+        }
+        else{
+            $img2='';
+        }
+        if($r->hasFile('img3')){
+            $img1=$r->file('img3');
+            $img1->move($path,'a3.jpg');
+            $link_img.=$path.'/a3.jpg||';
+        }
+        else{
+            $img3='';
+        }
+        if($r->hasFile('img4')){
+            $img1=$r->file('img4');
+            $img1->move($path,'a4.jpg');
+            $link_img.=$path.'/a4.jpg';
+        }
+        else{
+            $img4='';
+        }
+
+        $dtb_product=new dtb_product;
+        $dtb_product->name=$r->name;
+        $dtb_product->id_type=$r->id_type;
+        $dtb_product->description=$r->description;
+        $dtb_product->unit_price=$r->unit_price;
+        $dtb_product->promotion_price=$r->promotion_price;
+        $dtb_product->image=$link_img;
+        $dtb_product->id_configuration=$r->id_config;
+        if($r->top==1)
+        {
+            $dtb_product->top=1;
+        }
+        else{
+            $dtb_product->top=0;
+        }
+        if($r->porpular==1)
+        {
+            $dtb_product->popular=1;
+        }
+        else{
+            $dtb_product->popular=0;
+        }
+        $dtb_product->save();
+        $r->Session()->put('product_add_success','success');
+        return redirect()->route('them-san-pham');
+    }
+    //get id typeproduct ajax
+    public function get_id_type_product(){
+        $typeProduct=dtb_typeproduct::all();
+        foreach ($typeProduct as $type) {
+            echo '<option value="'.$type->id.'">'.$type->id.'-'.$type->name.'</option>';
+        }
+    }
+    //get id config ajax
+    public function get_id_config(){
+        $config=dtb_config::all();
+        foreach ($config as $conf) {
+            echo '<option value="'.$conf->id.'">'.$conf->id.'-'.$conf->cpu.'</option>';
+        }
+    }
+    //paginate product
+    public function paginate_product_admin($stt){
+        $product=dtb_product::all();
+        if(($stt*4)>=count($product)){
+            $html_table='';
+            for($i=($stt*4)-4;$i<count($product);$i++){
+                $html_table.='<tr class="odd gradeX" align="center"><td>'.$product[$i]->id.'</td><td ><p>'.$product[$i]->name.'</p><img style="width: 200px" src="'.asset('').'/'.explode('||',$product[$i]->image)[0].'" alt="'.$product[$i]->name.'"></td><td>'.$product[$i]->id_type.'</td><td>'.$product[$i]->description.'</td><td>'.$product[$i]->unit_price.'</td><td>'.$product[$i]->promotion_price.'</td><td>'.$product[$i]->id_configuration.'</td><td>'.$product[$i]->top.'</td><td>'.$product[$i]->popular.'</td><td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#" class="delete" name="'.$product[$i]->id.'"> Delete</a></td><td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="'.route('sua-san-pham',$product[$i]->id).'">Edit</a></td></tr>';
+            }
+            echo $html_table;
+        }
+        else{
+            $html_table='';
+            for($i=($stt*4)-4;$i<($stt*4);$i++){
+                $html_table.='<tr class="odd gradeX" align="center"><td>'.$product[$i]->id.'</td><td ><p>'.$product[$i]->name.'</p><img style="width: 200px" src="'.asset('').'/'.explode('||',$product[$i]->image)[0].'" alt="'.$product[$i]->name.'"></td><td>'.$product[$i]->id_type.'</td><td>'.$product[$i]->description.'</td><td>'.$product[$i]->unit_price.'</td><td>'.$product[$i]->promotion_price.'</td><td>'.$product[$i]->id_configuration.'</td><td>'.$product[$i]->top.'</td><td>'.$product[$i]->popular.'</td><td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#" class="delete" name="'.$product[$i]->id.'"> Delete</a></td><td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="'.route('sua-san-pham',$product[$i]->id).'">Edit</a></td></tr>';
+            }
+            echo $html_table;
+        }
+    }
+    public function view_all_product_exe(){
+        $products=dtb_product::all();
+        foreach ($products as $product) {
+            echo '<tr class="odd gradeX" align="center"><td>'.$product->id.'</td><td ><p>'.$product->name.'</p><img style="width: 200px" src="'.asset('').'/'.explode('||',$product->image)[0].'" alt="'.$product->name.'"></td><td>'.$product->id_type.'</td><td>'.$product->description.'</td><td>'.$product->unit_price.'</td><td>'.$product->promotion_price.'</td><td>'.$product->id_configuration.'</td><td>'.$product->top.'</td><td>'.$product->popular.'</td><td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#" class="delete" name="'.$product->id.'">Delete</a></td><td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="'.route('sua-san-pham',$product->id).'">Edit</a></td>';
+            
+        }
+    }
+    //delete product
+    public function product_delete_admin_exe($id){
+        $p=dtb_product::where('id',$id)->first();
+        $t=dtb_typeproduct::where('id',$p->id_type)->first();
+        $path="mockup/images/chitietsanpham/".$t->name.'/'.$p->name;
+        File::deleteDirectory(public_path($path));
+        $res=dtb_product::where('id',$id)->delete();
+        $product=dtb_product::all();
+        for($i=0;$i<4;$i++) {
+            echo '<tr class="odd gradeX" align="center"><td>'.$product[$i]->id.'</td><td ><p>'.$product[$i]->name.'</p><img style="width: 200px" src="'.asset('').'/'.explode('||',$product[$i]->image)[0].'" alt="'.$product[$i]->name.'"></td><td>'.$product[$i]->id_type.'</td><td>'.$product[$i]->description.'</td><td>'.$product[$i]->unit_price.'</td><td>'.$product[$i]->promotion_price.'</td><td>'.$product[$i]->id_configuration.'</td><td>'.$product[$i]->top.'</td><td>'.$product[$i]->popular.'</td><td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#" class="delete" name="'.$product[$i]->id.'"> Delete</a></td><td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="'.route('sua-san-pham',$product[$i]->id).'">Edit</a></td></tr>';
+        }
+    }
+    //Sửa sản phẩm
+    public function product_edit_admin_exe(Request $r){
+        //thay đổi image
+        $typeProduct=dtb_typeproduct::where('id',$r->id_type)->first();
+        $path="mockup/images/chitietsanpham/".$typeProduct['name']."/".$r->name;
+        //cập nhật lại đường dẫn ảnh
+        $product_t = dtb_product::where('id',$r->id)->first();
+        $old_path="mockup/images/chitietsanpham/".$typeProduct['name']."/".$product_t->name;
+        rename($old_path,$path);
+        $image=$path.'/a1.jpg||'.$path.'/a2.jpg||'.$path.'/a3.jpg||'.$path.'/a4.jpg';
+        //
+        if($r->hasFile('img1')){
+            $img1=$r->file('img1');
+            $img1->move($path,'a1.jpg');
+        }
+        if($r->hasFile('img2')){
+            $img2=$r->file('img2');
+            $img2->move($path,'a2.jpg');
+        }
+        if($r->hasFile('img3')){
+            $img3=$r->file('img3');
+            $img3->move($path,'a3.jpg');
+        }
+        if($r->hasFile('img4')){
+            $img4=$r->file('img4');
+            $img4->move($path,'a4.jpg');
+        }
+
+
+        $product = dtb_product::where('id',$r->id)->first();
+        $product->name=$r->name;
+        $product->id_type =$r->id_type;
+        $product->description=$r->description;
+        $product->unit_price=$r->unit_price;
+        $product->promotion_price=$r->promotion_price;
+        $product->image=$image;
+        $product->id_configuration=$r->id_config;
+        if($r->top==1)
+        {
+            $product->top=1;
+        }
+        else{
+            $product->top=0;
+        }
+        if($r->porpular==1)
+        {
+            $product->popular=1;
+        }
+        else{
+            $product->popular=0;
+        }
+        $product->save();
+        $r->Session()->put('product_edit_success','success');
+        return redirect()->route('danh-sach-san-pham');
+    }
+
+
     //config
     public function config_add(){
         return view('admin_page.config_add');
@@ -431,6 +634,20 @@ class PageController extends Controller
             echo '<tr class="odd gradeX" align="center"><td>'.$config[$i]['id'].'</td><td>'.$config[$i]['cpu'].'</td><td>'.$config[$i]['ram'].'</td><td>'.$config[$i]['hard_disk'].'</td><td>'.$config[$i]['cart_graphic'].'</td><td>'.$config[$i]['display'].'</td><td>'.$config[$i]['connect'].'</td><td>'.$config[$i]['pin'].'</td><td>'.$config[$i]['weight'].'</td><td>'.$config[$i]['size'].'</td><td class="center delete" name="'.$config[$i]['id'].'"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td><td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="'.route('sua-cau-hinh',$config[$i]['id']).'">Edit</a></td></tr>';
         }
     }
+    //view all config
+    public function view_all_config_exe(){
+        $config=dtb_config::all();
+        foreach ($config as $conf) {
+            echo '<tr class="odd gradeX" align="center"><td>'.$conf['id'].'</td><td>'.$conf['cpu'].'</td><td>'.$conf['ram'].'</td><td>'.$conf['hard_disk'].'</td><td>'.$conf['cart_graphic'].'</td><td>'.$conf['display'].'</td><td>'.$conf['connect'].'</td><td>'.$conf['pin'].'</td><td>'.$conf['weight'].'</td><td>'.$conf['size'].'</td><td class="center delete" name="'.$conf['id'].'"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td><td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="'.route('sua-cau-hinh',$conf['id']).'">Edit</a></td></tr>';
+            
+        }
+    }
+
+
+
+
+
+
     //auth overwrite email
     // class LoginController extends Controller
     // {

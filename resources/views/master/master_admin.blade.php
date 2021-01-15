@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Khóa Học Lập Trình Laravel Framework 5.x Tại Khoa Phạm">
     <meta name="author" content="">
     <title>Admin-area</title>
 
@@ -75,6 +74,14 @@
         @if(Session::has('config_edit_success'))
             swal("edit config success!", "Bạn đã sửa cấu hình thành công", "success")
             {{Session::forget('config_edit_success')}}
+        @endif
+        @if(Session::has('product_add_success'))
+            swal("edit config success!", "Bạn đã thêm sản phẩm thành công", "success")
+            {{Session::forget('product_add_success')}}
+        @endif
+        @if(Session::has('product_edit_success'))
+            swal("edit product success!", "Bạn đã sửa sản phẩm thành công", "success")
+            {{Session::forget('product_edit_success')}}
         @endif
     });
     </script>

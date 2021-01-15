@@ -382,7 +382,7 @@
               }
             });
             //click add
-            $(".add__cart").click(function(){
+            $('body').on('click',".add__cart",function(){
                 var id=parseInt($(this).attr('name').trim());
                 $.ajax({
                 url: "add_cart_post",

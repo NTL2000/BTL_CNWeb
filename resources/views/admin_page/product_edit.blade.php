@@ -4,52 +4,82 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Product
-                            <small>Edit</small>
+                        <h1 class="page-header">Sản phẩm 
+                            <small>Sửa</small>
                         </h1>
                     </div>
                     <!-- /.col-lg-12 -->
                     <div class="col-lg-7" style="padding-bottom:120px">
-                        <form action="" method="POST">
+                        <form action="{{route('sua-san-pham_exe')}}" enctype="multipart/form-data" method="POST">
+                            @csrf
                             <div class="form-group">
-                                <label>Name</label>
-                                <input class="form-control" name="txtName" placeholder="Please Enter Username" />
+                                <label>ID</label>
+                                <input class="form-control" value="{{$product->id}}" readonly="readonly" name="id" />
                             </div>
                             <div class="form-group">
-                                <label>Price</label>
-                                <input class="form-control" name="txtPrice" placeholder="Please Enter Password" />
+                                <label>Tên</label>
+                                <input class="form-control" value="{{$product->name}}" name="name" placeholder="Please Enter name product" />
                             </div>
                             <div class="form-group">
-                                <label>Intro</label>
-                                <textarea class="form-control" rows="3" name="txtIntro"></textarea>
+                                <label>ID loại</label>
+                                <select id="id_type_ef" name="id_type">
+                                    <option value="{{$typeProduct_current->id}}" selected><?php echo $typeProduct_current->id.'-'.$typeProduct_current->name ?></option>
+                                    @foreach($typeProduct as $type)
+                                    <option value="{{$type->id}}"><?php echo $type->id.'-'.$type->name ?></option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-group">
-                                <label>Content</label>
-                                <textarea class="form-control" rows="3" name="txtContent"></textarea>
+                                <label>Mô tả</label>
+                                <textarea id="demo_ef" class="form-control ckeditor" rows="5" name="description">{{$product->description}}</textarea>
                             </div>
                             <div class="form-group">
-                                <label>Images</label>
-                                <input type="file" name="fImages">
+                                <label>Giá bình thường</label>
+                                <input class="form-control" name="unit_price" value="{{$product->unit_price}}" placeholder="Please Enter Username" />
                             </div>
                             <div class="form-group">
-                                <label>Product Keywords</label>
-                                <input class="form-control" name="txtOrder" placeholder="Please Enter Category Keywords" />
+                                <label>Giá khuyến mãi</label>
+                                <input class="form-control" name="promotion_price" value="{{$product->promotion_price}}" placeholder="Please Enter Username" />
+                            <div class="form-group">
+                                <label>Ảnh 1</label>
+                                <input type="file" value="{{explode('||',$product->image)[0]}}" name="img1" id="input0">
+                                <img id="img0" src="{{asset('').'/'.explode('||',$product->image)[0]}}" alt="{{explode('||',$product->image)[0]}}">
                             </div>
                             <div class="form-group">
-                                <label>Product Description</label>
-                                <textarea class="form-control" rows="3"></textarea>
+                                <label>Ảnh 2</label>
+                                <input id="input1" type="file" name="img2">
+                                <img id="img1" src="{{asset('').'/'.explode('||',$product->image)[1]}}" alt="{{explode('||',$product->image)[1]}}">
                             </div>
                             <div class="form-group">
-                                <label>Product Status</label>
+                                <label>Ảnh 3</label>
+                                <input id="input2" type="file" name="img3">
+                                <img id="img2" src="{{asset('').'/'.explode('||',$product->image)[2]}}" alt="{{explode('||',$product->image)[2]}}">
+                            </div>
+                            <div class="form-group">
+                                <label>Ảnh 4</label>
+                                <input id="input3" type="file" name="img4">
+                                <img id="img3" src="{{asset('').'/'.explode('||',$product->image)[3]}}" alt="{{explode('||',$product->image)[3]}}">
+                            </div>
+                            <div class="form-group">
+                                <label>ID Cấu hình</label>
+                                <select id="id_config_ef" name="id_config">
+                                    <option value="{{$config_current->id}}" selected><?php echo $config_current->id.'-'.$config_current->cpu ?></option>
+                                    @foreach($config as $conf)
+                                    <option value="{{$conf->id}}"><?php echo $conf->id.'-'.$conf->cpu ?></option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Vị trí xuất hiện</label>
                                 <label class="radio-inline">
-                                    <input name="rdoStatus" value="1" checked="" type="radio">Visible
+                                    <input name="top"  value="1" type="radio">Trên đầu
                                 </label>
                                 <label class="radio-inline">
-                                    <input name="rdoStatus" value="2" type="radio">Invisible
+                                    <input name="porpular"  value="1" type="radio">Phổ biến
                                 </label>
                             </div>
-                            <button type="submit" class="btn btn-default">Product Edit</button>
-                            <button type="reset" class="btn btn-default">Reset</button>
+                            <button type="submit" class="btn btn-default">Sửa sản phẩm</button>
+                            <button type="reset" class="btn btn-default">Làm mới</button>
                         <form>
                     </div>
                 </div>
@@ -57,4 +87,70 @@
             </div>
             <!-- /.container-fluid -->
         </div>
+@endsection
+@section('scripts')
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function (){
+            // get id type product
+
+            //preview img
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('#img0').attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+            $("#input0").change(function (){
+                readURL(this);
+            });
+            function readURL1(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('#img1').attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+            $("#input1").change(function (){
+                readURL1(this);
+            });
+            function readURL2(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('#img2').attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+            $("#input2").change(function (){
+                readURL2(this);
+            });
+            function readURL3(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('#img3').attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+            $("#input3").change(function (){
+                readURL3(this);
+            });
+              
+        });
+    </script>
 @endsection

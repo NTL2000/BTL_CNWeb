@@ -4,52 +4,68 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Product
-                            <small>Add</small>
+                        <h1 class="page-header">Sản phẩm 
+                            <small>thêm</small>
                         </h1>
                     </div>
                     <!-- /.col-lg-12 -->
                     <div class="col-lg-7" style="padding-bottom:120px">
-                        <form action="" method="POST">
+                        <form action="{{route('them-san-pham_exe')}}" enctype="multipart/form-data" method="POST">
+                            @csrf
                             <div class="form-group">
-                                <label>Name</label>
-                                <input class="form-control" name="txtName" placeholder="Please Enter Username" />
+                                <label>Tên</label>
+                                <input class="form-control" name="name" placeholder="Please Enter name product" />
                             </div>
                             <div class="form-group">
-                                <label>Price</label>
-                                <input class="form-control" name="txtPrice" placeholder="Please Enter Password" />
+                                <label>ID loại</label>
+                                <select id="id_type" name="id_type">
+                                    <option value="volvo">1</option>
+                                </select>
                             </div>
                             <div class="form-group">
-                                <label>Intro</label>
-                                <textarea class="form-control" rows="3" name="txtIntro"></textarea>
+                                <label>Mô tả</label>
+                                <textarea id="demo" class="form-control ckeditor" rows="5" name="description"></textarea>
                             </div>
                             <div class="form-group">
-                                <label>Content</label>
-                                <textarea class="form-control" rows="3" name="txtContent"></textarea>
+                                <label>Giá bình thường</label>
+                                <input class="form-control" name="unit_price" placeholder="Please Enter Username" />
                             </div>
                             <div class="form-group">
-                                <label>Images</label>
-                                <input type="file" name="fImages">
+                                <label>Giá khuyến mãi</label>
+                                <input class="form-control" name="promotion_price" placeholder="Please Enter Username" />
+                            <div class="form-group">
+                                <label>Ảnh 1</label>
+                                <input type="file" name="img1">
                             </div>
                             <div class="form-group">
-                                <label>Product Keywords</label>
-                                <input class="form-control" name="txtOrder" placeholder="Please Enter Category Keywords" />
+                                <label>Ảnh 2</label>
+                                <input type="file" name="img2">
                             </div>
                             <div class="form-group">
-                                <label>Product Description</label>
-                                <textarea class="form-control" rows="3"></textarea>
+                                <label>Ảnh 3</label>
+                                <input type="file" name="img3">
                             </div>
                             <div class="form-group">
-                                <label>Product Status</label>
+                                <label>Ảnh 4</label>
+                                <input type="file" name="img4">
+                            </div>
+                            <div class="form-group">
+                                <label>ID Cấu hình</label>
+                                <select id="id_config" name="id_config">
+                                    <option value="volvo">1</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Vị trí xuất hiện</label>
                                 <label class="radio-inline">
-                                    <input name="rdoStatus" value="1" checked="" type="radio">Visible
+                                    <input name="top" id="position_ratio" value="1" type="radio">Trên đầu
                                 </label>
                                 <label class="radio-inline">
-                                    <input name="rdoStatus" value="2" type="radio">Invisible
+                                    <input name="porpular" id="position_ratio" value="1" type="radio">Phổ biến
                                 </label>
                             </div>
-                            <button type="submit" class="btn btn-default">Product Add</button>
-                            <button type="reset" class="btn btn-default">Reset</button>
+                            <button type="submit" class="btn btn-default">Thêm sản phẩm</button>
+                            <button type="reset" class="btn btn-default">Làm mới</button>
                         <form>
                     </div>
                 </div>
@@ -57,4 +73,27 @@
             </div>
             <!-- /.container-fluid -->
         </div>
+@endsection
+@section('scripts')
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function (){
+            // get id product
+            $.ajax({
+                url: "get_id_type_product",
+                method: "get",
+                success: function (data) {
+                    $('#id_type').html(data);
+                },
+                });
+            // get id config
+            $.ajax({
+                url: "get_id_config",
+                method: "get",
+                success: function (data) {
+                    $('#id_config').html(data);
+                },
+                });
+              
+        });
+    </script>
 @endsection

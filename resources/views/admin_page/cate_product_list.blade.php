@@ -31,7 +31,7 @@
                             @endfor
                             <nav aria-label="Page navigation example">
                               <ul class="pagination">
-                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                <li class="page-item view_all"><a class="page-link" href="#">ALL</a></li>
                                 @if($typeProduct->count()%4!=0)
                                     @for($i=0;$i<$typeProduct->count()/4;$i++)
                                     <li class="page-item png" name="{{$i+1}}"><a class="page-link" href="#">{{$i+1}}</a></li>
@@ -41,7 +41,6 @@
                                     <li class="page-item png" name="{{$i}}"><a class="page-link" href="#">{{$i}}</a></li>
                                     @endfor
                                 @endif
-                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
                               </ul>
                             </nav>
                         </tbody>
@@ -75,6 +74,7 @@
                 },
                 });
             });
+            //xoá loại sản phẩm
             $('table').on('click','.delete',function(){
                 var id=parseInt($(this).attr('name').trim());
                 $.ajax({
@@ -82,16 +82,15 @@
                 method: "get",
                 success: function (data) {
                     $('.body_table').html(data);
-                    //re_value_typeProduct
-                    // $.ajax({
-                    // url: "category_delete_exe/"+id,
-                    // method: "get",
-                    // success: function (data) {
-                    //     $('.body_table').html(data);
-                    //     //re_value_typeProduct
-                        
-                    // },
-                    // });
+                },
+                });
+            });
+            $('.view_all').click(function(){
+                $.ajax({
+                url: "view_all_category_exe",
+                method: "get",
+                success: function (data) {
+                    $('.body_table').html(data);
                 },
                 });
             });
