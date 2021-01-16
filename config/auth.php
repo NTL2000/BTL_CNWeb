@@ -120,6 +120,12 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
+        'dtb_employee' => [
+            'provider' => 'dtb_employee',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
     ],
 
     /*

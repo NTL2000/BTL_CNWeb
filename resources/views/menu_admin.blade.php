@@ -11,7 +11,10 @@
             </div>
             <!-- /.navbar-header -->
 
-            <ul class="nav navbar-top-links navbar-right">
+            <ul class="nav navbar-top-links navbar-right" style="display: flex">
+                @if(Auth::guard('dtb_employee')->check())
+                <p style="margin-top: 15px;">Chào {{Auth::guard('dtb_employee')->user()->full_name}}</p>
+                @endif
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -23,7 +26,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="{{route('dang-xuat-admin')}}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -46,9 +49,9 @@
                             </div>
                             <!-- /input-group -->
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="#"><i class="fas fa-chart-bar"></i></i> Tổng quan</a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="#"><i class="fa fa-list-alt" aria-hidden="true"></i>Loại sản phẩm<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -89,16 +92,16 @@
                             <a href="#"><i class="fas fa-user"></i> Quản trị viên<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">danh sách</a>
+                                    <a href="{{route('danh-sach-nguoi-dung')}}">danh sách</a>
                                 </li>
                                 <li>
-                                    <a href="#">thêm</a>
+                                    <a href="{{route('them-nguoi-dung')}}">thêm</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <!-- start customer -->
-                        <li>
+                        <!-- <li>
                             <a href="#"><i class="fa fa-users fa-fw"></i> khách hàng<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -108,11 +111,11 @@
                                     <a href="#">thêm</a>
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
+                            /.nav-second-level
+                        </li> -->
                         <!-- end customer -->
                         <!-- start bill -->
-                        <li>
+                        <!-- <li>
                             <a href="#"><i class="fas fa-money-bill-alt"></i> hoá đơn<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -122,11 +125,11 @@
                                     <a href="#">thêm</a>
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
+                            /.nav-second-level
+                        </li> -->
                         <!-- end bill -->
                         <!-- start notification -->
-                        <li>
+                        <!-- <li>
                             <a href="#"><i class="fas fa-bell"></i> thông báo<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -136,11 +139,11 @@
                                     <a href="#">thêm</a>
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
+                            /.nav-second-level
+                        </li> -->
                         <!-- end notification -->
                         <!-- start slider -->
-                        <li>
+                        <!-- <li>
                             <a href="#"><i class="fas fa-image"></i> slider<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -150,8 +153,8 @@
                                     <a href="#">thêm</a>
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
+                            /.nav-second-level
+                        </li> -->
                         <!-- end slider -->
                     </ul>
                 </div>

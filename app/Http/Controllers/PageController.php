@@ -11,6 +11,7 @@ use App\Models\dtb_customer;
 use App\Models\cart;
 use App\Models\dtb_bills;
 use App\Models\dtb_billdetail;
+use App\Models\dtb_employee;
 use Illuminate\Support\Facades\File; 
 use Illuminate\Filesystem\Filesystem;
 use Hash;
@@ -297,6 +298,97 @@ class PageController extends Controller
     public function get_login_admin(){
         return view('admin_page.login');
     }
+    public function login_admin_exe(Request $r){
+        $this->validate($r,
+        [
+            'email'=>'required|email',
+            'password'=>'required|min:6|max:20'
+        ],
+        [
+            'email.required'=>'Vui lòng đăng nhập email',
+            'email.email'=>'email không đúng định dạng',
+            'password.required'=>'vui lòng nhập mật khẩu',
+            'password.min'=>'mật khẩu có ít nhất 6 ký tự',
+            'password.max'=>'mật khẩu không quá 20 ký tự'
+        ]);
+        $cridentials=array('email' =>trim($r->email) , 'password'=>trim($r->password));
+        if(Auth::guard('dtb_employee')->attempt($cridentials)){
+            return redirect()->route('danh-sach-san-pham');
+        }
+        else{
+            return redirect()->back();
+        }
+    }
+    public function logout_admin(){
+        Auth::guard('dtb_employee')->logout();
+        return redirect()->route('dang-nhap-admin');
+    }
+    public function user_list(){
+        $user=dtb_employee::all();
+        return view('admin_page.user_list',compact('user'));
+    }
+    //paginate user
+    public function paginate_user_admin($stt){
+        $user=dtb_employee::all();
+        if(($stt*4)>=count($user)){
+            $html_table='';
+            for($i=($stt*4)-4;$i<count($user);$i++){
+                $html_table.='<tr class="odd gradeX" align="center"><td>'.$user[$i]['id'].'</td><td>'.$user[$i]['full_name'].'</td><td>'.$user[$i]['birth'].'</td><td>'.$user[$i]['address'].'</td><td>'.$user[$i]['gender'].'</td><td>'.$user[$i]['phone'].'</td><td>'.$user[$i]['email'].'</td><td class="center delete" name="'.$user[$i]['id'].'"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td><td class="center"><i class="fa fa-pencil fa-fw"></i><a href="'.route('sua-nguoi-dung',$user[$i]['id']).'">Edit</a></td></tr>';
+            }
+            echo $html_table;
+        }
+        else{
+            $html_table='';
+            for($i=($stt*4)-4;$i<($stt*4);$i++){
+                $html_table.='<tr class="odd gradeX" align="center"><td>'.$user[$i]['id'].'</td><td>'.$user[$i]['full_name'].'</td><td>'.$user[$i]['birth'].'</td><td>'.$user[$i]['address'].'</td><td>'.$user[$i]['gender'].'</td><td>'.$user[$i]['phone'].'</td><td>'.$user[$i]['email'].'</td><td class="center delete" name="'.$user[$i]['id'].'"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td><td class="center"><i class="fa fa-pencil fa-fw"></i><a href="'.route('sua-nguoi-dung',$user[$i]['id']).'">Edit</a></td></tr>';
+            }
+            echo $html_table;
+        }
+    }
+    public function user_edit($id){
+        $user=dtb_employee::where('id',$id)->first();
+        return view('admin_page.user_edit',compact('user'));
+    }
+    public function view_all_user_exe(){
+        $users=dtb_employee::all();
+        foreach ($users as $user) {
+            echo '<tr class="odd gradeX" align="center"><td>'.$user->id.'</td><td>'.$user->full_name.'</td><td>'.$user->birth.'</td><td>'.$user->address.'</td><td>'.$user->gender.'</td><td>'.$user->phone.'</td><td>'.$user->email.'</td><td class="center delete" name="'.$user->id.'"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td><td class="center"><i class="fa fa-pencil fa-fw"></i><a href="'.route('sua-nguoi-dung',$user->id).'">Edit</a></td></tr>';
+        }
+    }
+    public function user_delete_exe($id){
+        $res=dtb_employee::where('id',$id)->delete();
+        $user=dtb_employee::all();
+        for($i=0;$i<4;$i++) {
+            echo '<tr class="odd gradeX" align="center"><td>'.$user[$i]['id'].'</td><td>'.$user[$i]['full_name'].'</td><td>'.$user[$i]['birth'].'</td><td>'.$user[$i]['address'].'</td><td>'.$user[$i]['gender'].'</td><td>'.$user[$i]['phone'].'</td><td>'.$user[$i]['email'].'</td><td class="center delete" name="'.$user[$i]['id'].'"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td><td class="center"><i class="fa fa-pencil fa-fw"></i><a href="'.route('sua-nguoi-dung',$user[$i]['id']).'">Edit</a></td></tr>';
+        }
+    }
+    public function user_edit_exe(Request $r){
+        $user=dtb_employee::where('id',$r->id)->first();
+        $user->full_name=$r->full_name;
+        $user->birth=$r->birth;
+        $user->address=$r->address;
+        if($r->gender==1)
+        {
+            $user->gender="Nam";
+        }
+        else{
+            $user->gender="Nu";
+        }
+        $user->phone=$r->phone;
+        $user->email=$r->email;
+        if($r->password !='')
+        {
+            $user->password=Hash::make($r->password);
+        }
+        $user->save();
+        $r->Session()->put('user_edit_success','success');
+        return redirect()->route('danh-sach-nguoi-dung');
+    }
+
+
+
+
+
     //category
     //add
     public function category_add_admin(){
@@ -359,15 +451,15 @@ class PageController extends Controller
     }
     //edit_exe
     public function category_edit_admin_exe(Request $r){
-        // $typeProduct=dtb_typeproduct::where('id',$r->txtCate_id)->first();
-        // $path='mockup/images/chitietsanpham/'.$r->txtCateName;
-        // $old_path='mockup/images/chitietsanpham/'.$typeProduct['name'];
-        // rename($old_path,$path);
-        // $products=dtb_product::where('id_type',$r->txtCate_id)->get();
-        // for($i =0;$i<count($products);$i++){
-        //     $products[$i]->image=str_replace($typeProduct->name, $r->txtCateName, $products[$i]->image);
-        //     $products[$i]->save();
-        // }
+        $typeProduct=dtb_typeproduct::where('id',$r->txtCate_id)->first();
+        $path='mockup/images/chitietsanpham/'.$r->txtCateName;
+        $old_path='mockup/images/chitietsanpham/'.$typeProduct['name'];
+        rename($old_path,$path);
+        $products=dtb_product::where('id_type',$r->txtCate_id)->get();
+        for($i =0;$i<count($products);$i++){
+            $products[$i]->image=str_replace($typeProduct->name, $r->txtCateName, $products[$i]->image);
+            $products[$i]->save();
+        }
 
         $type = dtb_typeproduct::where('id',$r->txtCate_id)->first();
         $type->name = $r->txtCateName;
@@ -641,6 +733,30 @@ class PageController extends Controller
             echo '<tr class="odd gradeX" align="center"><td>'.$conf['id'].'</td><td>'.$conf['cpu'].'</td><td>'.$conf['ram'].'</td><td>'.$conf['hard_disk'].'</td><td>'.$conf['cart_graphic'].'</td><td>'.$conf['display'].'</td><td>'.$conf['connect'].'</td><td>'.$conf['pin'].'</td><td>'.$conf['weight'].'</td><td>'.$conf['size'].'</td><td class="center delete" name="'.$conf['id'].'"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td><td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="'.route('sua-cau-hinh',$conf['id']).'">Edit</a></td></tr>';
             
         }
+    }
+
+    //user admin
+    public function user_add(){
+        return view('admin_page.user_add');
+    }
+    public function user_add_exe(Request $r){
+        $user=new dtb_employee;
+        $user->full_name=$r->full_name;
+        $user->birth=$r->birth;
+        $user->address=$r->address;
+        if($r->gender==1)
+        {
+            $user->gender="Nam";
+        }
+        else{
+            $user->gender="Nu";
+        }
+        $user->phone=$r->phone;
+        $user->email=$r->email;
+        $user->password=Hash::make($r->password);
+        $user->save();
+        $r->Session()->put('user_add_success','success');
+        return redirect()->route('them-nguoi-dung');
     }
 
 

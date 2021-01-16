@@ -83,6 +83,14 @@
             swal("edit product success!", "Bạn đã sửa sản phẩm thành công", "success")
             {{Session::forget('product_edit_success')}}
         @endif
+        @if(Session::has('user_add_success'))
+            swal("add admin success!", "Bạn đã thêm admin thành công", "success")
+            {{Session::forget('user_add_success')}}
+        @endif
+        @if(Session::has('user_edit_success'))
+            swal("edit admin success!", "Bạn đã sửa admin thành công", "success")
+            {{Session::forget('user_edit_success')}}
+        @endif
     });
     </script>
 </body>

@@ -57,9 +57,11 @@ Route::get('view_all3',[PageController::class,'view_all3']);
 Route::get('re_view_all3',[PageController::class,'re_view_all3']);
 //route admin
 //login_admin
-Route::get('login_admin',[PageController::class,'get_login_admin']);
+Route::get('login_admin',[PageController::class,'get_login_admin'])->name('dang-nhap-admin');
+Route::post('login_admin_exe',[PageController::class,'login_admin_exe'])->name('dang-nhap-admin_exe');
+Route::get('logout_admin',[PageController::class,'logout_admin'])->name('dang-xuat-admin');
 //admin page
-Route::group(['prefix'=>'admin'],function(){
+Route::group(['prefix'=>'admin','middleware'=>'AdminLogin'],function(){
 	Route::group(['prefix'=>'category'],function(){
 		Route::get('category_add',[PageController::class,'category_add_admin'])->name('them-loai-san-pham');
 		Route::post('category_add_exe',[PageController::class,'category_add_admin_exe'])->name('them-loai-san-pham_exe');
@@ -94,5 +96,15 @@ Route::group(['prefix'=>'admin'],function(){
 		Route::get('config_delete_exe/{id}',[PageController::class,'config_delete_admin_exe']);
 		//view all config
 		Route::get('view_all_config_exe',[PageController::class,'view_all_config_exe']);
+	});
+	Route::group(['prefix'=>'user'],function(){
+		Route::get('user_add',[PageController::class,'user_add'])->name('them-nguoi-dung');
+		Route::post('user_add_exe',[PageController::class,'user_add_exe'])->name('them-nguoi-dung_exe');
+		Route::get('user_list',[PageController::class,'user_list'])->name('danh-sach-nguoi-dung');
+		route::get('paginate_user_admin/{stt}',[PageController::class,'paginate_user_admin']);
+		route::get('user_edit/{id}',[PageController::class,'user_edit'])->name('sua-nguoi-dung');
+		route::get('view_all_user_exe',[PageController::class,'view_all_user_exe']);
+		Route::get('user_delete_exe/{id}',[PageController::class,'user_delete_exe']);
+		Route::post('user_edit_exe',[PageController::class,'user_edit_exe'])->name('sua-nguoi-dung_exe');
 	});
 });

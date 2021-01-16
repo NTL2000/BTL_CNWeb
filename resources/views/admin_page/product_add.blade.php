@@ -35,19 +35,23 @@
                                 <input class="form-control" name="promotion_price" placeholder="Please Enter Username" />
                             <div class="form-group">
                                 <label>Ảnh 1</label>
-                                <input type="file" name="img1">
+                                <input type="file" name="img1" id="input0">
+                                <img id="img0" src="" alt="">
                             </div>
                             <div class="form-group">
                                 <label>Ảnh 2</label>
-                                <input type="file" name="img2">
+                                <input id="input1" type="file" name="img2">
+                                <img id="img1" src="" alt="">
                             </div>
                             <div class="form-group">
                                 <label>Ảnh 3</label>
-                                <input type="file" name="img3">
+                                <input id="input2" type="file" name="img3">
+                                <img id="img2" src="" alt="">
                             </div>
                             <div class="form-group">
                                 <label>Ảnh 4</label>
-                                <input type="file" name="img4">
+                                <input id="input3" type="file" name="img4">
+                                <img id="img3" src="" alt="">
                             </div>
                             <div class="form-group">
                                 <label>ID Cấu hình</label>
@@ -93,7 +97,65 @@
                     $('#id_config').html(data);
                 },
                 });
-              
+            
+            //preview img
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('#img0').attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+            $("#input0").change(function (){
+                readURL(this);
+            });
+            function readURL1(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('#img1').attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+            $("#input1").change(function (){
+                readURL1(this);
+            });
+            function readURL2(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('#img2').attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+            $("#input2").change(function (){
+                readURL2(this);
+            });
+            function readURL3(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('#img3').attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+            $("#input3").change(function (){
+                readURL3(this);
+            });
+
         });
     </script>
 @endsection

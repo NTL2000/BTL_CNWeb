@@ -8,7 +8,8 @@
                         <h3 class="panel-title">Please login</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form" action="" method="POST">
+                        <form role="form" action="{{route('dang-nhap-admin_exe')}}" method="POST">
+                            @csrf
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
