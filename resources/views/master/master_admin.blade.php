@@ -76,7 +76,7 @@
             {{Session::forget('config_edit_success')}}
         @endif
         @if(Session::has('product_add_success'))
-            swal("edit config success!", "Bạn đã thêm sản phẩm thành công", "success")
+            swal("product add success!", "Bạn đã thêm sản phẩm thành công", "success")
             {{Session::forget('product_add_success')}}
         @endif
         @if(Session::has('product_edit_success'))
@@ -88,7 +88,7 @@
             {{Session::forget('user_add_success')}}
         @endif
         @if(Session::has('user_edit_success'))
-            swal("edit admin success!", "Bạn đã sửa admin thành công", "success")
+            swal("edit user success!", "Bạn đã sửa admin thành công", "success")
             {{Session::forget('user_edit_success')}}
         @endif
     });

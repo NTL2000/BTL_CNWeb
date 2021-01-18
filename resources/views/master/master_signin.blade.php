@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Trang chủ</title>
+    <link rel="icon" href="{{asset('mockup\images\chitietsanpham\10151473.jpg')}}" type="image/jpg" />
+    <title>TLU_Shop-signin</title>
     <!-- Bootstrap -->
     <link href="mockup/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Icon -->
